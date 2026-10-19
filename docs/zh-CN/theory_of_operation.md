@@ -51,11 +51,11 @@ $$
 因此
 
 $$
-\phi = \operatorname{atan2}(a_y, a_z),
+\phi = \mathrm{atan2}(a_y, a_z),
 $$
 
 $$
-\theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
+\theta = \mathrm{atan2}\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
 $$
 
 报告写作 $\phi = \arctan(a_y/a_z)$。该式丢失象限，且在 $a_z = 0$ 时无定义。
@@ -84,8 +84,8 @@ $$
 $$
 
 $$
-\theta_k = \alpha\,\theta_{\mathrm{acc},k}
-+ (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
+\theta_k = \alpha\,\theta_{\mathrm{acc},k} +
+(1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
 
 滤波器在低频信任加速度计、在高频信任陀螺仪。它不能使加速度计在推力阶段

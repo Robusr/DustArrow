@@ -25,8 +25,8 @@
 | ID | 位置 | 原文或原实现 | 修正或说明 | 类型 | 状态 | 依据与验证 |
 |---|---|---|---|---|---|---|
 | E-01 | 第 2 节 (1)①，约第 4 页 | 只写“绕 x 轴为 roll、绕 y 轴为 pitch、绕 z 轴为 yaw”，未定义轴向与传感器安装 | 明确采用 $x$ 前、$y$ 右、$z$ 上；实际板卡安装需对照丝印复核 | 坐标/符号 | [待确认] | 报告无安装图注；`test_attitude.py` 按此约定构造重力向量 |
-| E-02 | 第 2 节 (1)①，约第 4 页 | $\Phi=\arctan(A_y/A_z)$ | $\phi=\operatorname{atan2}(A_y,A_z)$ | 数值/符号 | 已修正 | $\phi=150^\circ$ 时原式返回 $-30^\circ$；`test_atan_loses_quadrant` |
-| E-03 | 第 2 节 (1)① 内嵌公式图 | 图示为 $\sin\theta=A_x/\sqrt{A_y^2+A_z^2}$，正文未给出俯仰推导 | 在本仓库约定下 $\theta=\operatorname{atan2}(-A_x,\sqrt{A_y^2+A_z^2})$；符号取决于安装方向 | 公式/符号 | [待确认] | `test_pitch_estimate` 在假定轴向下通过；实际安装未验证 |
+| E-02 | 第 2 节 (1)①，约第 4 页 | $\Phi=\arctan(A_y/A_z)$ | $\phi=\mathrm{atan2}(A_y,A_z)$ | 数值/符号 | 已修正 | $\phi=150^\circ$ 时原式返回 $-30^\circ$；`test_atan_loses_quadrant` |
+| E-03 | 第 2 节 (1)① 内嵌公式图 | 图示为 $\sin\theta=A_x/\sqrt{A_y^2+A_z^2}$，正文未给出俯仰推导 | 在本仓库约定下 $\theta=\mathrm{atan2}(-A_x,\sqrt{A_y^2+A_z^2})$；符号取决于安装方向 | 公式/符号 | [待确认] | `test_pitch_estimate` 在假定轴向下通过；实际安装未验证 |
 | E-04 | 第 2 节 (1)②，约第 5 页 | $\theta_k=k\theta_{acc,k}+(1-k)\theta_{gyro,k}$，$\theta_{gyro,k}=\theta_{k-1}+\omega_y\Delta t$ | 补充 $\alpha=\tau/(\tau+\Delta t)$ 与完整离散更新；明确 $\Delta t$、初值和零偏 | 控制/数值 | 已补充 | 固定 $k$ 会随采样周期改变截止频率；`test_fixed_k_depends_on_sample_rate` |
 | E-05 | 摘要、第 2 节 (2)、图 2.214 | 声称“3D 姿态信息实时反馈” | 六轴 IMU 仅能观测横滚/俯仰；偏航需磁力计、GNSS 航迹角或已知初值 | 运动学/结论 | 已修正表述 | 重力对偏航不变；`test_yaw_not_observable_from_gravity` |
 | E-06 | 第 2 节 (1)① | 用静态重力公式解算姿态，未讨论推力 | 推力会叠加到加速度计；静态公式在主动段失效 | 动力学/实验 | [待确认] | 合成 20 m/s² 轴向推力时俯仰估计约 $-64^\circ$；`test_thrust_corrupts_accelerometer_angle` |

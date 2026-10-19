@@ -55,11 +55,11 @@ $$
 On en déduit
 
 $$
-\phi = \operatorname{atan2}(a_y, a_z),
+\phi = \mathrm{atan2}(a_y, a_z),
 $$
 
 $$
-\theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
+\theta = \mathrm{atan2}\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
 $$
 
 Le rapport écrit $\phi = \arctan(a_y/a_z)$. Cette forme perd le quadrant et
@@ -92,8 +92,8 @@ $$
 $$
 
 $$
-\theta_k = \alpha\,\theta_{\mathrm{acc},k}
-+ (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
+\theta_k = \alpha\,\theta_{\mathrm{acc},k} +
+(1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
 
 Le filtre fait confiance à l’accéléromètre en basse fréquence et au gyroscope en

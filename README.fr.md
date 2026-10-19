@@ -92,9 +92,9 @@ Au repos, l’accéléromètre mesure la réaction à la gravité. Avec $x$ vers
 l’avant, $y$ vers la droite et $z$ vers le haut :
 
 $$
-\phi = \operatorname{atan2}(a_y, a_z),
+\phi = \mathrm{atan2}(a_y, a_z),
 \qquad
-\theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
+\theta = \mathrm{atan2}\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
 $$
 
 L’implémentation utilise `atan2` pour conserver le quadrant. Le filtre
@@ -103,8 +103,8 @@ complémentaire du premier ordre utilise une période d’échantillonnage expli
 $$
 \alpha = \frac{\tau}{\tau+\Delta t},
 \qquad
-\theta_k = \alpha\,\theta_{\mathrm{acc},k}
-+ (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
+\theta_k = \alpha\,\theta_{\mathrm{acc},k} +
+(1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
 
 La démonstration complète, les conventions de repère et les corrections se

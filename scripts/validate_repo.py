@@ -118,6 +118,21 @@ def check_math():
                     "%s: GitHub does not render %s; use $...$ or $$...$$"
                     % (path.relative_to(ROOT), delimiter)
                 )
+        if re.search(r"\\operatorname\b", text):
+            errors.append(
+                "%s: GitHub blocks \\operatorname; use \\mathrm"
+                % path.relative_to(ROOT)
+            )
+        in_display = False
+        for line in text.splitlines():
+            if line.strip() == "$$":
+                in_display = not in_display
+                continue
+            if in_display and re.match(r"^\s{0,3}[+*-]\s", line):
+                errors.append(
+                    "%s: list marker inside $$ block: %s"
+                    % (path.relative_to(ROOT), line.strip())
+                )
     return errors
 
 
