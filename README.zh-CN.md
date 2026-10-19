@@ -75,23 +75,23 @@ A39C LoRa、GP2Y1014AU0F 和 MQ 系列气体传感器；地面端是 Python/PyQt
 
 ## 理论与设计
 
-静态条件下，加速度计测量重力反作用。按本仓库约定，\(x\) 向前、\(y\) 向右、
-\(z\) 向上：
+静态条件下，加速度计测量重力反作用。按本仓库约定，$x$ 向前、$y$ 向右、
+$z$ 向上：
 
-\[
+$$
 \phi = \operatorname{atan2}(a_y, a_z),
 \qquad
 \theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
-\]
+$$
 
 实现使用 `atan2` 保留象限。一阶互补滤波使用明确的采样周期：
 
-\[
+$$
 \alpha = \frac{\tau}{\tau+\Delta t},
 \qquad
 \theta_k = \alpha\,\theta_{\mathrm{acc},k}
 + (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
-\]
+$$
 
 完整推导、坐标约定与修正见[工作原理](docs/zh-CN/theory_of_operation.md)和
 [勘误记录](docs/errata.md)。

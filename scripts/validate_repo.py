@@ -112,9 +112,12 @@ def check_math():
         without_display = re.sub(r"\$\$.*?\$\$", "", text, flags=re.DOTALL)
         if without_display.count("$") % 2:
             errors.append("%s: unbalanced inline $" % path.relative_to(ROOT))
-        for left, right in [("\\(", "\\)"), ("\\[", "\\]")]:
-            if without_display.count(left) != without_display.count(right):
-                errors.append("%s: unbalanced %s %s" % (path.relative_to(ROOT), left, right))
+        for delimiter in ("\\(", "\\)", "\\[", "\\]"):
+            if delimiter in without_display:
+                errors.append(
+                    "%s: GitHub does not render %s; use $...$ or $$...$$"
+                    % (path.relative_to(ROOT), delimiter)
+                )
     return errors
 
 
