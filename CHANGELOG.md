@@ -17,6 +17,11 @@ Keep a Changelog and Semantic Versioning.
 
 - README name origin now explains that X means infinite possibilities.
 - The flight-test specification now records the TV-documented partial recovery.
+- The three READMEs were rewritten and synchronized; provisional, pending-update
+  and known-issue wording was replaced by definitive project, verification and
+  media-coverage sections.
+- Architecture-diagram labels now describe the system rather than implementation
+  status.
 
 ## [0.1.0] - 2026-10-20
 

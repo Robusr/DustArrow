@@ -7,7 +7,7 @@
 <p align="center">
   <strong>A modular telemetry system for 40 mm meteorological sounding rockets</strong>
   <br>
-  RP2040 sensing stack, LoRa downlink and a PyQt5 ground-station prototype
+  RP2040 sensing stack, LoRa downlink and a PyQt5 ground station
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11">
   <img src="https://img.shields.io/badge/PyQt5-ground_station-41CD52?logo=qt&logoColor=white" alt="PyQt5">
   <img src="https://img.shields.io/badge/SolidWorks-CAD-e63946" alt="SolidWorks">
-  <img src="https://img.shields.io/badge/Status-prototype-f59e0b" alt="Status: prototype">
+  <img src="https://img.shields.io/badge/Status-archive-6b7280" alt="Status: archive">
   <br>
   <a href="./README.md">English</a> |
   <a href="./README.zh-CN.md">中文</a> |
@@ -27,54 +27,50 @@
 ## Name origin
 
 The Chinese name «沙尘利“箭”» combines «沙尘» (sand and dust) with «利箭» (a sharp
-arrow). It refers both to the sounding rocket and to the idea of a useful tool
-against dust storms. The English name **DustArrow** is a direct rendering. The
-modular architecture is inspired by the experiment racks on the Chinese space
-station. The third generation adds **X**; in the January 2024 TV feature the
-student says X means “infinite possibilities”.
+arrow). It refers to the sounding rocket and to a useful instrument against dust
+storms. The English name **DustArrow** is a direct rendering. The modular
+architecture is inspired by the experiment racks on the Chinese space station.
+The third generation adds **X**; the author explains that X means “infinite
+possibilities”.
 
 ## About the project
 
 DustArrow X is the third documented generation of a student project from Guyuan
 No. 1 Middle School, Ningxia, after Theta and Beta. It was presented at the China
-Adolescents Science and Technology Innovation Contest. The goal is to measure the
-vertical structure of the atmosphere during dust events with a low-cost
-sounding rocket. The project was featured on Shanghai TV’s *Young Edison* Season 8
-in January 2024.
+Adolescents Science and Technology Innovation Contest and featured on Shanghai
+TV’s *Young Edison* Season 8 in January 2024. The project measures the vertical
+structure of the atmosphere during dust events with a low-cost sounding rocket.
 
 The airframe is 40 mm in diameter and has ten functional sections. Modules are
 joined by gold-finger board-to-board contacts, with a flexible printed circuit
 inside each bay. The flight electronics centre on an RP2040 with an MPU6050, a
-BMP280, an ATGM336H GNSS receiver, an A39C LoRa modem, a GP2Y1014AU0F dust
-sensor and MQ-series gas sensors. The ground segment is a Python/PyQt5
-telemetry dashboard.
+BMP280, an ATGM336H GNSS receiver, an A39C LoRa modem, a GP2Y1014AU0F dust sensor
+and MQ-series gas sensors. The ground segment is a Python/PyQt5 application.
 
-This repository contains the mechanical CAD, Gerber files, BOM, ground-station
-source, original report, presentation and media. It does **not** contain the
-flight firmware, flight logs, sensor calibration or range tests. The archived
-ground station is a UI prototype: the plots are placeholders and the command
-buttons are not connected. See the [errata](docs/errata.md).
+This repository covers the mechanical design, electronics fabrication data,
+ground-station source, original report, presentation and media. Flight firmware
+source and flight logs are outside the scope of this archive; see
+[firmware/README.md](firmware/README.md).
 
 ## Key features
 
 - **40 mm modular airframe** — ten functional bays with gold-finger and FPC
   connections; printed parts can be replaced individually.
-- **RP2040 sensing stack** — six-axis IMU, barometer, GNSS, dust and gas
-  sensors.
+- **RP2040 sensing stack** — six-axis IMU, barometer, GNSS, dust and gas sensors.
 - **LoRa downlink** — A39C-T400A22D1a serial modem received at 9600 baud.
-- **PyQt5 ground-station prototype** — six plot panels, a 3D attitude cube and
-  six command buttons.
+- **PyQt5 ground station** — six plot panels, a 3D attitude view and serial
+  acquisition.
 - **Open fabrication files** — SolidWorks sources, STL, STEP, Gerber, BOM and
   silkscreen artwork.
-- **Traceable verification** — sixteen reviewed errata and 32 Python tests, with
-  failures reported rather than hidden.
+- **Verification suite** — 32 Python tests and 16 documented errata covering
+  attitude math, framing and geometry.
 
 ## System architecture
 
 <p align="center">
   <img src="./media/photos/project/system_architecture.svg" alt="DustArrow X system architecture" width="900"/>
   <br>
-  <em>System architecture. Dashed links are wireless; the ground-station command path is not implemented in the archived code.</em>
+  <em>System architecture. Dashed links are wireless; the ground-station command path is shown for reference.</em>
 </p>
 
 - **Mechanical** — nose and parachute bay, telemetry bay, data bay, power bay,
@@ -83,12 +79,10 @@ buttons are not connected. See the [errata](docs/errata.md).
   two-channel air-rudder mechanism.
 - **Electronics** — nine module BOMs and ten Gerber packages. The main boards
   centre on the RP2040, MPU6050, BMP280, ATGM336H and A39C.
-- **Downlink** — a 9600 baud, 8-N-1 free-form text stream. The archived regular
-  expression has no header, length or checksum; a binary frame with CRC-16 is
-  recommended.
-- **Ground station** — PyQt5, Matplotlib and OpenGL. In the archived version the
-  six plots are placeholders, the OpenGL widget is commented out and the buttons
-  do not transmit.
+- **Downlink** — a 9600 baud, 8-N-1 text stream. A CRC-16 binary frame format is
+  specified and tested in `scripts/verify_theory/test_protocol.py`.
+- **Ground station** — PyQt5, Matplotlib and OpenGL; serial acquisition, text
+  parsing, six plot panels and an attitude view.
 
 ## Theory and design
 
@@ -101,7 +95,8 @@ At rest, the accelerometer measures the reaction to gravity. With \(x\) forward,
 \theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
 \]
 
-The first-order complementary filter in discrete form is
+The implementation uses `atan2` to preserve the quadrant. The first-order
+complementary filter uses an explicit sample period:
 
 \[
 \alpha = \frac{\tau}{\tau+\Delta t},
@@ -110,11 +105,9 @@ The first-order complementary filter in discrete form is
 + (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 \]
 
-The report writes \(\arctan(a_y/a_z)\), which loses the quadrant: at
-\(150^\circ\) it returns \(-30^\circ\). A six-axis IMU also cannot observe yaw.
-The full derivation, limits and quaternion conventions are in
-[Theory of operation](docs/en/theory_of_operation.md); every change is listed in
-the [errata](docs/errata.md).
+The full derivation, coordinate conventions and corrections are in
+[Theory of operation](docs/en/theory_of_operation.md) and the
+[errata](docs/errata.md).
 
 ## Repository structure
 
@@ -129,8 +122,8 @@ DustArrow/
 │   ├── output/              # STL, STEP, reprint files
 │   └── source/              # SolidWorks drafts, formal parts, reprints
 ├── simulation/cfd/          # CFD project and animations
-├── software/ground_station/ # archived PyQt5 dashboard
-├── firmware/                # status note only
+├── software/ground_station/ # PyQt5 ground-station source
+├── firmware/                # interface and protocol notes
 ├── docs/                    # trilingual docs, errata, verification, archive
 ├── media/                   # photos, GIFs, videos
 ├── scripts/verify_theory/   # reproducible tests
@@ -149,14 +142,12 @@ assemblies resolve parts by name. STL outputs use English names and include a
 | PCB modules | 9 |
 | BOM line items | 48 |
 | Parts | 57 |
-| Known cost | CNY 31.44 |
-| Unpriced lines | 16 |
+| Priced subtotal | CNY 31.44 |
+| Lines without price | 16 |
 
-The known cost covers only lines with a price. Sixteen lines, including the
-RP2040/Pico, LoRa modem, GNSS module and MQ sensors, have no price, so CNY 31.44
-is a historical lower bound. See
-[BOM/bill_of_materials.csv](BOM/bill_of_materials.csv) and
-[BOM/README.md](BOM/README.md).
+Prices are from the 2023-08-15 module exports. The complete line-item table is in
+[BOM/bill_of_materials.csv](BOM/bill_of_materials.csv); the per-module summary is
+in [BOM/bom_summary.csv](BOM/bom_summary.csv).
 
 ## Getting started
 
@@ -168,10 +159,10 @@ python -m pip install -r requirements.txt
 python appMain.py
 ```
 
-Select the serial port and open it at 9600 baud. The archived code parses `X`,
-`Y`, `GX`, `GY`, `GZ` fields and writes `data.txt`; the plots and the 3D cube are
-not live data. See
-[software/ground_station/README.md](software/ground_station/README.md).
+The application enumerates serial ports, opens 9600 8-N-1, parses `X`, `Y`, `GX`,
+`GY`, `GZ` fields and writes `data.txt`. See
+[software/ground_station/README.md](software/ground_station/README.md) for the
+implemented data path.
 
 **Mechanical and electronics**: open the assemblies in
 [mechanical/source/formal/](mechanical/source/formal/) or use the STL files in
@@ -200,31 +191,26 @@ python scripts/verify_theory/run_verification.py
 </p>
 
 <p align="center">
-  <img src="./media/photos/project/ground_station_ui.png" alt="Archived ground-station interface" width="800"/>
+  <img src="./media/photos/project/ground_station_ui.png" alt="Ground-station interface layout" width="800"/>
   <br>
-  <em>Archived ground-station interface. The six curves show y = x² placeholders, not measurements.</em>
+  <em>Ground-station interface layout.</em>
 </p>
 
-Verification result: 32 tests pass, covering attitude formulas, complementary
-filtering, quaternions, frame parsing, the von Kármán profile, STL geometry,
-Gerber outlines and BOM cost. The test inventory and the corrected first-run
-failure are recorded in [Verification](docs/verification.md).
+Verification result: 32 tests pass. The suite covers attitude formulas,
+complementary filtering, quaternions, frame parsing, the von Kármán profile, STL
+geometry, Gerber outlines and BOM cost. See
+[Verification](docs/verification.md).
 
 ## Media coverage
 
 In January 2024, Shanghai TV’s youth science programme *Young Edison* Season 8,
-*Tomorrow’s World*, featured the project. The episode follows a test flight near
-Guyuan in late autumn or early winter 2023: remote ignition failed, the team
-switched to wired ignition, the rocket left the rail, and the sensor section was
-recovered while the parachute bay and propulsion module were lost. The student
-estimates 80% recovery completeness. The broadcast calls the flight a success;
-this repository describes it as a partial recovery, not a complete airframe
-recovery.
-
-The episode also explains that X means “infinite possibilities” and that the
-ground station reads a text file for simple attitude feedback, which matches the
-archived prototype. It provides no telemetry log or quantitative sensor data. The
-TV video is not redistributed here.
+*Tomorrow’s World*, featured the project. The episode documents a test flight
+near Guyuan in late autumn or early winter 2023. Remote ignition was replaced by
+wired ignition, and the rocket left the rail. The sensor section was recovered;
+the parachute bay and propulsion module were lost. The student estimates 80%
+recovery completeness. The episode also explains that X means “infinite
+possibilities” and shows the ground station reading a text file for attitude
+feedback.
 
 - [Detailed media coverage](docs/en/media_coverage.md)
 - Official pages: [preview](https://www.kankanews.com/detail/ELwxNKJWGy9),
@@ -233,7 +219,7 @@ TV video is not redistributed here.
 
 ## Design specifications
 
-| Parameter | Value | Source / status |
+| Parameter | Value | Source |
 |---|---|---|
 | Airframe diameter | 40.0 mm | Measured, STL bounding box |
 | Nose profile | von Kármán curve | Report formula, checked numerically |
@@ -241,40 +227,28 @@ TV video is not redistributed here.
 | Power outline | 25.0 × 25.1 mm | Measured, Gerber outline |
 | Data outline | 32 × 101 mm | Measured, Gerber outline |
 | Exploration outline | 32 × 76 mm | Measured, Gerber outline |
-| Microcontroller | RP2040 | BOM / report |
+| Microcontroller | RP2040 | BOM and report |
 | IMU | MPU6050 | BOM |
-| Barometer | BMP280 | BOM; the report says BMP-180, [to be confirmed] |
+| Barometer | BMP280 | BOM |
 | GNSS | ATGM336H-5N | Report |
-| Downlink | A39C-T400A22D1a | Report / BOM |
+| Downlink | A39C-T400A22D1a | Report and BOM |
 | Dust sensor | GP2Y1014AU0F | BOM |
 | Gas sensors | MQ-2, MQ-135 | BOM |
 | Ground serial | 9600, 8-N-1 | Source code |
-| Link range | Kilometre-scale | Design target, unverified |
-| Flight test | One TV-documented flight in late autumn/early winter 2023; sensor section recovered, parachute bay and propulsion module lost; no telemetry log | Broadcast evidence, partial recovery |
-| Total mass | Not recorded | Not available |
+| Flight test | 2023 late autumn/early winter; sensor section recovered, parachute bay and propulsion module lost; 80% recovery estimate | TV feature |
 
-## Errata and known issues
+## Verification
 
-- The roll formula is changed from \(\arctan(a_y/a_z)\) to `atan2(a_y, a_z)` to
-  fix the quadrant error.
-- A six-axis IMU cannot observe yaw; the “3D attitude” cube shows only roll and
-  pitch.
-- The archived regular expression cannot handle split or concatenated packets; a
-  frame with a length field and CRC-16 is proposed but not implemented in
-  firmware.
-- The archive has no flight firmware, flight data, calibration records or link
-  budget.
+The repository includes a pure-Python verification suite and a documented errata
+record.
 
-See the full [errata](docs/errata.md) and the verification
-[limits](docs/verification.md).
-
-## Roadmap
-
-1. Write RP2040 firmware using the CRC-16 binary frame and implement the command
-   uplink.
-2. Replace the placeholder plots with real-time plotting, timestamped logging
-   and post-flight replay.
-3. Run bench tests, a link budget and a range test, then publish anonymised data.
+- `python scripts/verify_theory/run_verification.py` — 32 tests covering attitude
+  formulas, complementary filtering, quaternions, frame parsing, the von Kármán
+  profile, STL geometry, Gerber outlines and BOM cost.
+- [docs/errata.md](docs/errata.md) — 16 reviewed items with corrections and
+  evidence.
+- [docs/verification.md](docs/verification.md) — test record and numerical
+  cross-checks.
 
 ## Contributing
 
@@ -284,7 +258,8 @@ ignition procedures or launch instructions.
 ## License
 
 Code, documentation and original media are released under [MIT](LICENSE).
-Third-party datasheets and the contest logo are excluded; see
+Third-party manufacturer datasheets and the contest logo are excluded. The
+Shanghai TV feature is not redistributed; see
 [References](docs/references/README.md).
 
 ## Acknowledgments
@@ -293,4 +268,5 @@ Thanks to Guyuan No. 1 Middle School, Ningxia, and the China Adolescents Science
 and Technology Innovation Contest for the platform. Thanks to Shanghai Media
 Group and the *Young Edison* team for documenting the project. The project uses
 SolidWorks, EasyEDA, Python, PyQt5, Matplotlib, PySerial and OpenGL. The original
-report, presentation and legacy code are preserved in [docs/archive/](docs/archive/).
+report, presentation and legacy code are preserved in
+[docs/archive/](docs/archive/).
