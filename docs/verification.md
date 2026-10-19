@@ -76,6 +76,9 @@ change any report formula or conclusion.
 
 - No flight firmware, so behaviour on the RP2040 is not tested.
 - No flight or bench telemetry log, so the attitude error envelope is unknown.
+  The January 2024 TV feature documents a flight and partial recovery, but it
+  provides no telemetry log or quantitative sensor data. The 80% recovery figure
+  is the student’s on-camera estimate, not an independent measurement.
 - No link budget or range test, so the kilometre-scale claim is unverified.
 - No sensor calibration data, so accelerometer/gyro bias and scale factors are
   not quantified.

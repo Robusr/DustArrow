@@ -7,7 +7,9 @@
   sol et interfaces.
 - [Guide de reproduction](replication_guide.md) — ce qui peut être fabriqué,
   testé et ce qui manque.
-- [Errata](../errata.md) — quinze points examinés, avec statut et preuves.
+- [Couverture médiatique](media_coverage.md) — sujet télévisé, preuve d’essai en
+  vol et droits.
+- [Errata](../errata.md) — seize points examinés, avec statut et preuves.
 - [Vérification](../verification.md) — inventaire des tests, résultats et limites.
 - [Glossaire](../glossary.md) — termes en anglais, chinois et français.
 - [Références](../references/README.md) — rapport, fiches techniques et droits

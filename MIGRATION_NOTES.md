@@ -72,7 +72,9 @@ All excluded files remain in the original source folder.
 ## Missing material
 
 - No flight firmware source, `.uf2`, `.hex` or `.bin` was found.
-- No flight-test log, telemetry log or sensor calibration record was found.
+- No flight-test log, telemetry log or sensor calibration record was found. The
+  January 2024 TV feature documents a test flight and partial recovery, but not a
+  telemetry log.
 - No current price quotes or supplier links were found; BOM prices are historical.
 - The report says BMP-180, while the BOM uses GY-BMP280. This is recorded in
   `docs/errata.md` as `[待确认]`.
@@ -89,3 +91,10 @@ All excluded files remain in the original source folder.
 - `uic.bat` now generates `ui_MainWindow.py` from the local `mainwindow.ui` and
   `res_rc.py` from `QtApp/res.qrc`.
 - No behaviour of the archived GUI was otherwise changed.
+
+## External material added after reorganization
+
+The Shanghai TV feature `F:\Desktop\Robusr\《少年爱迪生》郭沫晗.mp4` was analyzed
+but not copied into the repository. It is a third-party production; metadata,
+SHA-256, rights and a fact-check are in `docs/*/media_coverage.md`. No broadcast
+stills or full transcript are committed.

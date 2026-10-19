@@ -18,6 +18,17 @@
 - `canard_parachute_animation.mp4` — nose separation, canard deployment and
   recovery animation.
 
+### External TV feature
+
+The January 2024 Shanghai TV feature is **not** stored in this repository:
+
+- File: `F:\Desktop\Robusr\《少年爱迪生》郭沫晗.mp4`
+- 19:43.02, 640 × 360, 25 fps, about 72.8 MB
+- SHA-256: `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9`
+- Copyright: Shanghai Media Group and programme producers; not redistributed.
+
+See `../docs/zh-CN/media_coverage.md` for the fact-check and rights note.
+
 ## GIFs
 
 GIFs are stored in `photos/project/` with a poster frame. Specifications:

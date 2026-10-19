@@ -30,7 +30,9 @@ Le nom chinois « 沙尘利箭 » associe « 沙尘 » (poussière de sable) et 
 (flèche acérée). Il désigne à la fois la fusée-sonde et l’idée d’une action utile
 contre les tempêtes de poussière. Le nom anglais **DustArrow** en est la
 traduction directe. La structure modulaire s’inspire des armoires expérimentales
-de la station spatiale chinoise.
+de la station spatiale chinoise. La troisième génération ajoute **X** ; dans le
+sujet télévisé de janvier 2024, l’auteur explique que X signifie « des
+possibilités infinies ».
 
 ## À propos du projet
 
@@ -45,7 +47,8 @@ modules sont reliés par des contacts à doigts dorés ; un circuit imprimé fle
 assure le routage interne. L’électronique de bord repose sur un RP2040, un
 MPU6050, un BMP280, un ATGM336H, un modem LoRa A39C, un capteur de poussière
 GP2Y1014AU0F et des capteurs de gaz MQ. La station au sol est une interface
-Python/PyQt5.
+Python/PyQt5. Le projet a été présenté dans *Young Edison* saison 8 sur la
+télévision de Shanghai en janvier 2024.
 
 Le dépôt contient la CAO mécanique, les Gerber, la nomenclature, le code de la
 station au sol, le rapport original, la présentation et les médias. Il ne contient
@@ -64,7 +67,7 @@ Voir les [errata](docs/errata.md).
   boutons de commande.
 - **Fichiers de fabrication ouverts** : sources SolidWorks, STL, STEP, Gerber,
   nomenclature et sérigraphies.
-- **Vérification traçable** : quinze errata et 32 tests Python, sans masquer les
+- **Vérification traçable** : seize errata et 32 tests Python, sans masquer les
   échecs.
 
 ## Architecture du système
@@ -210,6 +213,27 @@ Kármán, la géométrie STL, le contour Gerber et le coût de la nomenclature.
 L’inventaire et l’échec corrigé du premier passage sont consignés dans
 [Vérification](docs/verification.md).
 
+## Couverture médiatique
+
+En janvier 2024, l’émission de science pour la jeunesse *Young Edison* saison 8,
+*Tomorrow’s World*, diffusée par la télévision de Shanghai, a consacré un sujet au
+projet. L’épisode suit un essai en vol près de Guyuan à la fin de l’automne ou au
+début de l’hiver 2023 : l’allumage à distance échoue, l’équipe passe à un allumage
+filaire, la fusée quitte le rail, la section des capteurs est récupérée tandis que
+la baie de parachute et le module de propulsion sont perdus. L’élève estime le
+taux de récupération à 80 %. L’émission parle de « succès » ; le dépôt décrit donc
+une récupération partielle, pas une récupération complète de la cellule.
+
+L’épisode indique aussi que X signifie « des possibilités infinies » et que la
+station au sol lit un fichier texte pour un retour d’attitude simple, ce qui
+correspond au prototype archivé. Il ne fournit ni journal de télémétrie ni données
+quantitatives. La vidéo n’est pas rediffusée dans ce dépôt.
+
+- [Couverture détaillée](docs/fr/media_coverage.md)
+- Pages officielles : [aperçu](https://www.kankanews.com/detail/ELwxNKJWGy9),
+  [épisode](https://www.kankanews.com/detail/LMwVGm9WB2z),
+  [présentation de la saison](https://www.kankanews.com/detail/boy4AKjBxQ1)
+
 ## Spécifications de conception
 
 | Paramètre | Valeur | Source / statut |
@@ -229,7 +253,7 @@ L’inventaire et l’échec corrigé du premier passage sont consignés dans
 | Capteurs de gaz | MQ-2, MQ-135 | Nomenclature |
 | Port série de la station | 9600, 8-N-1 | Code source |
 | Portée de la liaison | Kilométrique | Objectif non vérifié |
-| Essai en vol | Aucun dans l’archive | Non disponible |
+| Essai en vol | Un vol documenté par la télévision fin automne/début hiver 2023 ; section capteurs récupérée, baie de parachute et propulsion perdues ; aucun journal de télémétrie | Preuve télévisée, récupération partielle |
 | Masse totale | Non consignée | Non disponible |
 
 ## Errata et problèmes connus
@@ -269,7 +293,8 @@ pas de cette licence ; voir [Références](docs/references/README.md).
 ## Remerciements
 
 Merci au lycée n° 1 de Guyuan (Ningxia) et au concours national chinois
-d’innovation scientifique et technologique pour les jeunes. Le projet utilise
+d’innovation scientifique et technologique pour les jeunes. Merci à Shanghai
+Media Group et à l’équipe de *Young Edison* pour le reportage. Le projet utilise
 SolidWorks, EasyEDA, Python, PyQt5, Matplotlib, PySerial et OpenGL. Le rapport
 original, la présentation et l’ancien code sont conservés dans
 [docs/archive/](docs/archive/).

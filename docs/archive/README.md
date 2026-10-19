@@ -22,6 +22,12 @@ The following were left in the source folder and are **not** committed:
 The source folder is `F:\Desktop\DustArrow X` on the author’s machine. It was
 not modified. See `../../MIGRATION_NOTES.md` for the full path mapping.
 
+## External media
+
+The January 2024 Shanghai TV feature is held outside the repository and is not
+archived here. Metadata, rights and the fact-check are in
+`../en/media_coverage.md`.
+
 ## Integrity
 
 Original documents are stored as-is. The report figures were extracted into

@@ -38,3 +38,10 @@ Les trois README et les documents longs utilisent les termes ci-dessous de mani�
 | design target | 设计目标 | objectif de conception |
 | measured value | 实测值 | valeur mesurée |
 | unverified claim | 未验证结论 | affirmation non vérifiée |
+| media coverage | 媒体报道 | couverture médiatique |
+| test flight | 试飞 | essai en vol |
+| ignition | 点火 | allumage |
+| wired ignition | 线控点火 | allumage filaire |
+| recovery | 回收 | récupération |
+| partial recovery | 部分回收 | récupération partielle |
+| broadcast | 播出 | diffusion |

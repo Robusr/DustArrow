@@ -30,7 +30,8 @@ The Chinese name «沙尘利“箭”» combines «沙尘» (sand and dust) with
 arrow). It refers both to the sounding rocket and to the idea of a useful tool
 against dust storms. The English name **DustArrow** is a direct rendering. The
 modular architecture is inspired by the experiment racks on the Chinese space
-station.
+station. The third generation adds **X**; in the January 2024 TV feature the
+student says X means “infinite possibilities”.
 
 ## About the project
 
@@ -38,7 +39,8 @@ DustArrow X is the third documented generation of a student project from Guyuan
 No. 1 Middle School, Ningxia, after Theta and Beta. It was presented at the China
 Adolescents Science and Technology Innovation Contest. The goal is to measure the
 vertical structure of the atmosphere during dust events with a low-cost
-sounding rocket.
+sounding rocket. The project was featured on Shanghai TV’s *Young Edison* Season 8
+in January 2024.
 
 The airframe is 40 mm in diameter and has ten functional sections. Modules are
 joined by gold-finger board-to-board contacts, with a flexible printed circuit
@@ -64,7 +66,7 @@ buttons are not connected. See the [errata](docs/errata.md).
   six command buttons.
 - **Open fabrication files** — SolidWorks sources, STL, STEP, Gerber, BOM and
   silkscreen artwork.
-- **Traceable verification** — fifteen reviewed errata and 32 Python tests, with
+- **Traceable verification** — sixteen reviewed errata and 32 Python tests, with
   failures reported rather than hidden.
 
 ## System architecture
@@ -208,6 +210,27 @@ filtering, quaternions, frame parsing, the von Kármán profile, STL geometry,
 Gerber outlines and BOM cost. The test inventory and the corrected first-run
 failure are recorded in [Verification](docs/verification.md).
 
+## Media coverage
+
+In January 2024, Shanghai TV’s youth science programme *Young Edison* Season 8,
+*Tomorrow’s World*, featured the project. The episode follows a test flight near
+Guyuan in late autumn or early winter 2023: remote ignition failed, the team
+switched to wired ignition, the rocket left the rail, and the sensor section was
+recovered while the parachute bay and propulsion module were lost. The student
+estimates 80% recovery completeness. The broadcast calls the flight a success;
+this repository describes it as a partial recovery, not a complete airframe
+recovery.
+
+The episode also explains that X means “infinite possibilities” and that the
+ground station reads a text file for simple attitude feedback, which matches the
+archived prototype. It provides no telemetry log or quantitative sensor data. The
+TV video is not redistributed here.
+
+- [Detailed media coverage](docs/en/media_coverage.md)
+- Official pages: [preview](https://www.kankanews.com/detail/ELwxNKJWGy9),
+  [episode](https://www.kankanews.com/detail/LMwVGm9WB2z),
+  [season overview](https://www.kankanews.com/detail/boy4AKjBxQ1)
+
 ## Design specifications
 
 | Parameter | Value | Source / status |
@@ -227,7 +250,7 @@ failure are recorded in [Verification](docs/verification.md).
 | Gas sensors | MQ-2, MQ-135 | BOM |
 | Ground serial | 9600, 8-N-1 | Source code |
 | Link range | Kilometre-scale | Design target, unverified |
-| Flight test | None in the archive | Not available |
+| Flight test | One TV-documented flight in late autumn/early winter 2023; sensor section recovered, parachute bay and propulsion module lost; no telemetry log | Broadcast evidence, partial recovery |
 | Total mass | Not recorded | Not available |
 
 ## Errata and known issues
@@ -267,6 +290,7 @@ Third-party datasheets and the contest logo are excluded; see
 ## Acknowledgments
 
 Thanks to Guyuan No. 1 Middle School, Ningxia, and the China Adolescents Science
-and Technology Innovation Contest for the platform. The project uses SolidWorks,
-EasyEDA, Python, PyQt5, Matplotlib, PySerial and OpenGL. The original report,
-presentation and legacy code are preserved in [docs/archive/](docs/archive/).
+and Technology Innovation Contest for the platform. Thanks to Shanghai Media
+Group and the *Young Edison* team for documenting the project. The project uses
+SolidWorks, EasyEDA, Python, PyQt5, Matplotlib, PySerial and OpenGL. The original
+report, presentation and legacy code are preserved in [docs/archive/](docs/archive/).

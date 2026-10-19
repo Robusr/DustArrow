@@ -7,7 +7,9 @@
   interfaces.
 - [Replication guide](replication_guide.md) — what can be built, tested and what
   is missing.
-- [Errata](../errata.md) — fifteen reviewed items, with status and evidence.
+- [Media coverage](media_coverage.md) — TV feature, flight-test evidence and
+  rights.
+- [Errata](../errata.md) — sixteen reviewed items, with status and evidence.
 - [Verification](../verification.md) — test inventory, results and limitations.
 - [Glossary](../glossary.md) — English, Chinese and French terms.
 - [References](../references/README.md) — report, datasheets and media rights.

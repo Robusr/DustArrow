@@ -30,6 +30,25 @@ Copyright remains with the original manufacturers.
   Contest logo are kept only in the archived report and presentation, not in the
   public media set. The logo is a third-party mark and is not covered by MIT.
 
+## Media coverage
+
+The January 2024 *Young Edison* feature is documented in
+`../zh-CN/media_coverage.md`, with English and French versions. Official pages:
+
+- Preview, 2024-01-25: <https://www.kankanews.com/detail/ELwxNKJWGy9>
+- Episode, 2024-01-27: <https://www.kankanews.com/detail/LMwVGm9WB2z>
+- Season overview, 2024-02-25: <https://www.kankanews.com/detail/boy4AKjBxQ1>
+
+The local video is held at `F:\Desktop\Robusr\《少年爱迪生》郭沫晗.mp4` with
+SHA-256 `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9`.
+It is a third-party television production and is not redistributed. Kankan News
+states that the material may not be reproduced without authorization. Only short
+quotations and time codes are used.
+
+A third-party SkillsMP profile claims a second prize at the 37th National Youth
+Science and Technology Innovation Competition. No official winner list was
+retrieved, so the claim is marked `[unverified]`.
+
 ## Report references
 
 The report cites Baidu Baike, two WeChat articles and a CSDN blog post. Those

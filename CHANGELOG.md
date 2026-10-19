@@ -5,6 +5,19 @@ Keep a Changelog and Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+
+- Media-coverage documentation in English, Chinese and French, including the
+  January 2024 *Young Edison* feature, video fingerprint and a fact-check table.
+- Errata item E-16 on the TV-documented test flight and its limits.
+- External TV feature metadata in `media/README.md`; the video is not
+  redistributed.
+
+### Changed
+
+- README name origin now explains that X means infinite possibilities.
+- The flight-test specification now records the TV-documented partial recovery.
+
 ## [0.1.0] - 2026-10-20
 
 ### Added

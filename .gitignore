@@ -49,3 +49,7 @@ desktop.ini
 
 # Keep original archived build files
 !docs/archive/**/*.spec
+
+# Third-party TV feature (not redistributed)
+media/videos/tv_feature*.mp4
+media/videos/《少年爱迪生》*.mp4
