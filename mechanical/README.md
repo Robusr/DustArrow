@@ -15,7 +15,7 @@ references. This is a documented exception to the repository naming convention.
 
 ## Output
 
-- `output/3dp/` — 27 STL files exported from the formal parts, with a
+- `output/3dp/` — 28 STL files exported from the formal parts, with a
   `part_name_mapping.csv`.
 - `output/reprint/` — 15 reprint STLs, with a mapping CSV.
 - `output/step/` — `overall_assembly.step`.

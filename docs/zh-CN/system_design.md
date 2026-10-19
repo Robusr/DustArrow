@@ -22,7 +22,7 @@ DustArrow X 是直径 40.0 mm 的模块化探空火箭。机械源文件按设�
 9. 鸭翼舱
 10. 推进与尾翼舱
 
-打印输出包含 `mechanical/output/3dp/` 中的 27 个 STL，以及
+打印输出包含 `mechanical/output/3dp/` 中的 28 个 STL，以及
 `mechanical/output/reprint/` 中的 15 个补印 STL。头锥外形使用
 `docs/references/von_karman_formula.txt` 记录的冯·卡门公式。
 

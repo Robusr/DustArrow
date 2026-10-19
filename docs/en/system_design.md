@@ -25,7 +25,7 @@ The formal airframe has ten functional sections:
 9. Canard bay
 10. Propulsion and fin bay
 
-The printed output set contains 27 STL files in `mechanical/output/3dp/` and 15
+The printed output set contains 28 STL files in `mechanical/output/3dp/` and 15
 reprint STLs in `mechanical/output/reprint/`. The nose profile follows the von
 Kármán formula recorded in `docs/references/von_karman_formula.txt`.
 

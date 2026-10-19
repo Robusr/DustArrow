@@ -25,7 +25,7 @@ La cellule finale comporte dix sections fonctionnelles :
 9. Baie des plans canard
 10. Baie de propulsion et d’empennage
 
-Les sorties d’impression comprennent 27 fichiers STL dans
+Les sorties d’impression comprennent 28 fichiers STL dans
 `mechanical/output/3dp/` et 15 STL de réimpression dans
 `mechanical/output/reprint/`. Le profil de l’ogive suit la formule de von Kármán
 conservée dans `docs/references/von_karman_formula.txt`.

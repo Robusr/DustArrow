@@ -46,3 +46,6 @@ desktop.ini
 # Media cache
 *.mp4.tmp
 *.gif.tmp
+
+# Keep original archived build files
+!docs/archive/**/*.spec
