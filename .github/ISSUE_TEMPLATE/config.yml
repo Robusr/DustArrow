@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Safety question
+    url: https://github.com/Robusr/DustArrow
+    about: Do not post propellant, ignition or launch-procedure questions in issues.
