@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="40" y="42" font-size="26" font-weight="700" fill="#1f2937">DustArrow X — Modular Telemetry Architecture</text>
+  <text x="40" y="68" font-size="14" fill="#6b7280">40 mm airframe, RP2040 flight stack, A39C LoRa downlink, PyQt5 ground station</text>
+
+  <rect x="30" y="95" width="560" height="610" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="50" y="125" font-size="18" font-weight="700" fill="#0f172a">Rocket segment</text>
+  <text x="50" y="147" font-size="13" fill="#475569">Modules joined by gold-finger board-to-board contacts; FPC inside each bay</text>
+
+  <g font-size="14">
+    <rect x="60" y="170" width="500" height="54" rx="9" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="78" y="193" font-weight="700" fill="#0f172a">Nose cone + parachute bay</text>
+    <text x="78" y="213" fill="#475569">Single-servo, large-angle hatch; nose profile follows the von Kármán curve</text>
+
+    <rect x="60" y="240" width="500" height="92" rx="9" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="78" y="263" font-weight="700" fill="#1e3a8a">Telemetry bay — sensing and computation</text>
+    <text x="78" y="284" fill="#1e40af">RP2040 · MPU6050 (6-axis IMU) · BMP280 barometer · ATGM336H GNSS</text>
+    <text x="78" y="304" fill="#1e40af">IMU drivers, attitude estimation, sensor scheduling</text>
+    <text x="78" y="322" fill="#64748b">Firmware source is not included in this archive</text>
+
+    <rect x="60" y="348" width="500" height="64" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="78" y="371" font-weight="700" fill="#14532d">Data bay — downlink</text>
+    <text x="78" y="392" fill="#166534">A39C-T400A22D1a LoRa serial modem · 9600 baud telemetry stream</text>
+
+    <rect x="60" y="428" width="500" height="64" rx="9" fill="#fef3c7" stroke="#d97706"/>
+    <text x="78" y="451" font-weight="700" fill="#78350f">Sensor bays — interchangeable</text>
+    <text x="78" y="472" fill="#92400e">GP2Y1014AU0F dust · MQ-2 smoke · MQ-135 air quality</text>
+
+    <rect x="60" y="508" width="500" height="64" rx="9" fill="#fae8ff" stroke="#a21caf"/>
+    <text x="78" y="531" font-weight="700" fill="#701a75">Power bay</text>
+    <text x="78" y="552" fill="#86198f">IP5306 power management · single-cell Li-ion · USB charging</text>
+
+    <rect x="60" y="588" width="500" height="54" rx="9" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="78" y="611" font-weight="700" fill="#0f172a">Canard bay + propulsion/fin bay</text>
+    <text x="78" y="631" fill="#475569">Two-channel air-rudder servo mechanism; commercial solid motor mount</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2" fill="none">
+    <path d="M310 224 L310 240" marker-end="url(#arrow)"/>
+    <path d="M310 332 L310 348" marker-end="url(#arrow)"/>
+    <path d="M310 412 L310 428" marker-end="url(#arrow)"/>
+    <path d="M310 492 L310 508" marker-end="url(#arrow)"/>
+    <path d="M310 572 L310 588" marker-end="url(#arrow)"/>
+  </g>
+
+  <rect x="700" y="95" width="470" height="610" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="720" y="125" font-size="18" font-weight="700" fill="#0f172a">Ground station</text>
+  <text x="720" y="147" font-size="13" fill="#475569">Python 3 · PyQt5 · Matplotlib · PySerial · PyOpenGL</text>
+
+  <g font-size="14">
+    <rect x="730" y="175" width="410" height="62" rx="9" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="748" y="198" font-weight="700" fill="#0c4a6e">USB serial receiver</text>
+    <text x="748" y="219" fill="#075985">9600 baud · 8-N-1 · newline-free text stream</text>
+
+    <rect x="730" y="257" width="410" height="76" rx="9" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="748" y="280" font-weight="700" fill="#4c1d95">Frame decoding (archived: regex)</text>
+    <text x="748" y="301" fill="#5b21b6">X, Y, GX, GY, GZ fields · no length or CRC</text>
+    <text x="748" y="320" fill="#6b7280">Recommended replacement: length + CRC-16 frame</text>
+
+    <rect x="730" y="353" width="195" height="150" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="748" y="376" font-weight="700" fill="#14532d">2D plots</text>
+    <text x="748" y="397" fill="#166534">Altitude</text>
+    <text x="748" y="416" fill="#166534">Pressure</text>
+    <text x="748" y="435" fill="#166534">Temperature / humidity</text>
+    <text x="748" y="454" fill="#166534">Visibility / PM1.0</text>
+    <text x="748" y="480" fill="#6b7280">UI only in archive</text>
+
+    <rect x="945" y="353" width="195" height="150" rx="9" fill="#fce7f3" stroke="#db2777"/>
+    <text x="963" y="376" font-weight="700" fill="#831843">3D attitude view</text>
+    <text x="963" y="397" fill="#9d174d">Colored cube</text>
+    <text x="963" y="416" fill="#9d174d">Roll + pitch</text>
+    <text x="963" y="435" fill="#9d174d">Yaw not observable</text>
+    <text x="963" y="461" fill="#6b7280">Widget disabled</text>
+    <text x="963" y="480" fill="#6b7280">in archived code</text>
+
+    <rect x="730" y="523" width="410" height="90" rx="9" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="748" y="546" font-weight="700" fill="#7f1d1d">Command uplink — planned</text>
+    <text x="748" y="567" fill="#991b1b">Ignition · parachute · sampling · calibration · self-test</text>
+    <text x="748" y="588" fill="#6b7280">Buttons exist in the UI; transmit path is not implemented</text>
+
+    <rect x="730" y="633" width="410" height="52" rx="9" fill="#f1f5f9" stroke="#64748b"/>
+    <text x="748" y="654" font-weight="700" fill="#0f172a">Logging</text>
+    <text x="748" y="673" fill="#475569">Archived code overwrites data.txt; timestamped log is planned</text>
+  </g>
+
+  <g stroke="#dc2626" stroke-width="2.5" fill="none" stroke-dasharray="8 5">
+    <path d="M560 380 L700 206" marker-end="url(#arrowRed)"/>
+    <path d="M700 550 L560 370" marker-end="url(#arrowRed)"/>
+  </g>
+  <text x="582" y="300" font-size="13" font-weight="700" fill="#b91c1c" transform="rotate(-33 582 300)">LoRa downlink</text>
+  <text x="575" y="500" font-size="13" font-weight="700" fill="#b91c1c" transform="rotate(-33 575 500)">uplink (planned)</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+  </defs>
+
+  <text x="40" y="735" font-size="12" fill="#6b7280">Status: prototype. Flight firmware, link budget and flight-test data are not present in this archive.</text>
+</svg>
