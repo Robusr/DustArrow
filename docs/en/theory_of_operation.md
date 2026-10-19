@@ -54,11 +54,11 @@ $$
 The roll and pitch estimates follow as
 
 $$
-\phi = \operatorname{atan2}(a_y, a_z),
+\phi = \mathrm{atan2}(a_y, a_z),
 $$
 
 $$
-\theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
+\theta = \mathrm{atan2}\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
 $$
 
 The report writes $\phi = \arctan(a_y/a_z)$. That form loses the quadrant and
@@ -90,8 +90,8 @@ $$
 $$
 
 $$
-\theta_k = \alpha\,\theta_{\mathrm{acc},k}
-+ (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
+\theta_k = \alpha\,\theta_{\mathrm{acc},k} +
+(1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
 
 The filter trusts the accelerometer at low frequency and the gyroscope at high
