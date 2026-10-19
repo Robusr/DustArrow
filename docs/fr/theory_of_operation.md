@@ -21,17 +21,17 @@ correction à `../errata.md` et `../verification.md`.
 
 ## Convention de repère
 
-Le rapport définit le roulis autour de \(x\), le tangage autour de \(y\) et le
-lacet autour de \(z\), sans préciser le sens des axes ni le montage du capteur.
+Le rapport définit le roulis autour de $x$, le tangage autour de $y$ et le
+lacet autour de $z$, sans préciser le sens des axes ni le montage du capteur.
 La suite de vérification adopte la convention suivante :
 
-- Repère du corps : \(x\) vers l’avant, \(y\) vers la droite, \(z\) vers le haut,
+- Repère du corps : $x$ vers l’avant, $y$ vers la droite, $z$ vers le haut,
   main droite.
-- Repère inertiel : horizontal local, \(z\) vers le haut.
-- Le quaternion \(q\) effectue la rotation du repère du corps vers le repère
+- Repère inertiel : horizontal local, $z$ vers le haut.
+- Le quaternion $q$ effectue la rotation du repère du corps vers le repère
   inertiel.
-- La gravité inertielle vaut \(\mathbf{g}_i = [0, 0, g]^T\), avec
-  \(g = 9,80665\ \mathrm{m/s^2}\).
+- La gravité inertielle vaut $\mathbf{g}_i = [0, 0, g]^T$, avec
+  $g = 9,80665\ \mathrm{m/s^2}$.
 
 Si la carte de vol utilise un autre montage, tous les signes ci-dessous doivent
 être revérifiés. Ce point est marqué `[待确认]` dans les errata.
@@ -40,35 +40,35 @@ Si la carte de vol utilise un autre montage, tous les signes ci-dessous doivent
 
 À l’arrêt et sans accélération, l’accéléromètre mesure la réaction à la gravité :
 
-\[
+$$
 \mathbf{a}_b = R(q)^T \mathbf{g}_i .
-\]
+$$
 
-Avec le roulis \(\phi\) et le tangage \(\theta\), les composantes sont
+Avec le roulis $\phi$ et le tangage $\theta$, les composantes sont
 
-\[
+$$
 a_x = -g \sin\theta, \qquad
 a_y = g \sin\phi \cos\theta, \qquad
 a_z = g \cos\phi \cos\theta .
-\]
+$$
 
 On en déduit
 
-\[
+$$
 \phi = \operatorname{atan2}(a_y, a_z),
-\]
+$$
 
-\[
+$$
 \theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
-\]
+$$
 
-Le rapport écrit \(\phi = \arctan(a_y/a_z)\). Cette forme perd le quadrant et
-n’est pas définie lorsque \(a_z = 0\). Pour \(\phi = 150^\circ\), elle renvoie
-\(-30^\circ\). Les errata remplacent la formule par `atan2` ; le test numérique
+Le rapport écrit $\phi = \arctan(a_y/a_z)$. Cette forme perd le quadrant et
+n’est pas définie lorsque $a_z = 0$. Pour $\phi = 150^\circ$, elle renvoie
+$-30^\circ$. Les errata remplacent la formule par `atan2` ; le test numérique
 reproduit l’erreur.
 
 Le rapport montre aussi une équation de tangage de la forme
-\(\sin\theta = a_x/\sqrt{a_y^2+a_z^2}\). Elle n’est équivalente à l’expression
+$\sin\theta = a_x/\sqrt{a_y^2+a_z^2}$. Elle n’est équivalente à l’expression
 ci-dessus qu’après fixation des signes d’axes. Elle est marquée `[待确认]`, car
 le montage n’est pas documenté.
 
@@ -76,38 +76,38 @@ le montage n’est pas documenté.
 
 Le rapport donne
 
-\[
+$$
 \theta_k = k\,\theta_{\mathrm{acc},k} + (1-k)\,\theta_{\mathrm{gyro},k},
 \qquad
 \theta_{\mathrm{gyro},k} = \theta_{k-1} + \omega_y \Delta t .
-\]
+$$
 
 Il s’agit d’un filtre complémentaire du premier ordre. Le texte ne précise ni
-\(\Delta t\), ni la fréquence d’échantillonnage, ni la condition initiale, ni le
+$\Delta t$, ni la fréquence d’échantillonnage, ni la condition initiale, ni le
 biais du gyroscope. Une forme reproductible utilise une constante de temps
-\(\tau\) :
+$\tau$ :
 
-\[
+$$
 \alpha = \frac{\tau}{\tau+\Delta t},
-\]
+$$
 
-\[
+$$
 \theta_k = \alpha\,\theta_{\mathrm{acc},k}
 + (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
-\]
+$$
 
 Le filtre fait confiance à l’accéléromètre en basse fréquence et au gyroscope en
 haute fréquence. Il ne rend pas l’accéléromètre valide pendant la poussée. Avec
-\(\alpha = \tau/(\tau+\Delta t)\), un biais constant \(b\) produit une faible
-erreur statique \(b\,\Delta t^2/\tau\), alors qu’une intégration gyroscopique
-pure dérive de \(b t\). La suite de vérification contrôle les deux
-comportements et montre qu’un \(k\) fixe déplace la fréquence de coupure lorsque
-\(\Delta t\) change.
+$\alpha = \tau/(\tau+\Delta t)$, un biais constant $b$ produit une faible
+erreur statique $b\,\Delta t^2/\tau$, alors qu’une intégration gyroscopique
+pure dérive de $b t$. La suite de vérification contrôle les deux
+comportements et montre qu’un $k$ fixe déplace la fréquence de coupure lorsque
+$\Delta t$ change.
 
 ## Lacet et limites d’une IMU 6 axes
 
 La gravité ne contient aucune information de cap. Une rotation de lacet laisse
-\(\mathbf{a}_b = [0,0,g]^T\) inchangé : le roulis et le tangage sont observables,
+$\mathbf{a}_b = [0,0,g]^T$ inchangé : le roulis et le tangage sont observables,
 le lacet ne l’est pas. Le MPU6050 n’a pas de magnétomètre. Le cube de la station
 au sol est donc un indicateur de roulis et de tangage, pas un affichage
 d’attitude 3D complète. Un cap exige un magnétomètre, le cap GNSS, ou un lacet
@@ -117,7 +117,7 @@ initial connu propagé par gyroscope avec surveillance de la dérive.
 
 Pendant la combustion, l’accéléromètre mesure la poussée et la gravité. Pour un
 véhicule horizontal soumis à une poussée axiale de 20 m/s², la formule statique
-donne environ \(-64^\circ\) au lieu de \(0^\circ\). Le filtre complémentaire
+donne environ $-64^\circ$ au lieu de $0^\circ$. Le filtre complémentaire
 atténue les transitoires courts mais ne supprime pas une accélération durable.
 L’archive ne contient aucune donnée d’accélération en vol ; l’erreur réelle n’est
 donc pas quantifiée.
@@ -146,16 +146,16 @@ Le rapport n’utilise pas de quaternions. L’implémentation de référence
 `../../scripts/verify_theory/quaternion.py` fixe les conventions du dépôt :
 
 - Produit de Hamilton.
-- Scalaire en premier, \(q = [w,x,y,z]\).
+- Scalaire en premier, $q = [w,x,y,z]$.
 - Rotation active du repère du corps vers le repère inertiel.
 - Normalisation après chaque pas d’intégration.
 - Erreur d’attitude mesurée par l’angle géodésique
-  \(2\arccos(|\langle q_1,q_2\rangle|)\), jamais par une différence de
+  $2\arccos(|\langle q_1,q_2\rangle|)$, jamais par une différence de
   composantes.
 
 Les tests couvrent l’identité, les rotations de 90° et 180°, l’ordre de
 composition, l’inverse, l’orthonormalité de la matrice, l’aller-retour d’Euler,
-l’équivalence \(q \equiv -q\) et l’intégration à vitesse angulaire constante.
+l’équivalence $q \equiv -q$ et l’intégration à vitesse angulaire constante.
 Ils préparent un estimateur d’attitude complet ; ils ne prétendent pas que le
 firmware d’origine utilisait des quaternions.
 

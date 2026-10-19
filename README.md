@@ -86,24 +86,24 @@ source and flight logs are outside the scope of this archive; see
 
 ## Theory and design
 
-At rest, the accelerometer measures the reaction to gravity. With \(x\) forward,
-\(y\) right and \(z\) up:
+At rest, the accelerometer measures the reaction to gravity. With $x$ forward,
+$y$ right and $z$ up:
 
-\[
+$$
 \phi = \operatorname{atan2}(a_y, a_z),
 \qquad
 \theta = \operatorname{atan2}\!\left(-a_x,\sqrt{a_y^2+a_z^2}\right).
-\]
+$$
 
 The implementation uses `atan2` to preserve the quadrant. The first-order
 complementary filter uses an explicit sample period:
 
-\[
+$$
 \alpha = \frac{\tau}{\tau+\Delta t},
 \qquad
 \theta_k = \alpha\,\theta_{\mathrm{acc},k}
 + (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
-\]
+$$
 
 The full derivation, coordinate conventions and corrections are in
 [Theory of operation](docs/en/theory_of_operation.md) and the
