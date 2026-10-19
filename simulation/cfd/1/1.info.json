@@ -1,0 +1,55 @@
+{
+    "version": 0,
+    "model_name": "理想化模型 X90 Y90.SLDPRT",
+    "project_name": "X90Y90",
+    "config_name": "默认",
+    "project_path": "F:\\Desktop\\DustArrow X\\图纸\\正式\\理想化模型\\1\\1.xmlconfig",
+    "finished": true,
+    "mesh": {
+        "cells_total": 27232,
+        "cells_fluid": 26605,
+        "cells_solid": 627,
+        "cells_fluid_containing_solid": 553
+    },
+    "telemetry": {
+        "prepare_geometry_finished": "06:32:30+0800",
+        "prepare_geometry_total_time": 1,
+        "cpu_time_solver_total": 281,
+        "iteration": 67,
+        "travel": 1.1221658656816602,
+        "phys_time": 0.0,
+        "time_step": 0.0012558516458365514,
+        "last_iteration_finished": "06:32:37+0800",
+        "cpu_time_per_last_iter": 8,
+        "cpu_time_left": 0,
+        "iterations_per_travel": 60
+    },
+    "goals": [],
+    "settings": {
+        "default_fluids": [
+            "空气"
+        ],
+        "analysis_type": "external",
+        "heat_conduction_in_solids": false,
+        "radiation": false,
+        "time_dependent": false,
+        "gravity": true,
+        "flow_type": "laminar and turbulent",
+        "cavitation": false,
+        "high_mach_number": true,
+        "free_surface": false,
+        "structural": false,
+        "electromagnetism": false
+    },
+    "system_info": {
+        "product_name": "Flow Simulation 2022  x64 / 5426 / SOLVER ver. efd_2021_2.5390_01.07.2021+FS_turb_1.2",
+        "cad_version": "SOLIDWORKS 2022 SP0.0",
+        "computer_name": "ADMINISTRATOR",
+        "user_name": "LEN",
+        "os": "Windows 10 (or higher) (Version 10.0.22621)",
+        "cpu": "13th Gen Intel(R) Core(TM) i9-13980HX",
+        "number_of_cores": 32,
+        "memory_avail": 4235,
+        "memory_total": 16003
+    }
+}

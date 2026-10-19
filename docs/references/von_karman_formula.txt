@@ -1,0 +1,1 @@
+    y=R/sqr(pi)*sqr(arccos(1-2*x/L)-sin(2*arccos(1-2*x/L))/2)

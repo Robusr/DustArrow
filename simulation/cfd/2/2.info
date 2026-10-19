@@ -1,0 +1,52 @@
+Model: 理想化模型 X60 Y90.SLDPRT
+Project name: X60Y90
+Config name: 默认
+Project path: F:\Desktop\DustArrow X\图纸\正式\理想化模型\2\2.xmlconfig
+Status: Finished
+
+Number of cells:
+    Total cells: 39170
+    Fluid cells: 38535
+    Solid cells: 635
+    Fluid cells containing solids: 587
+
+
+Geometry preparation finished: 06:42:23
+Geometry preparation time: 00:00:01
+Solver CPU time: 00:06:22
+Iterations: 70
+Travels: 1.03621
+Physical time: 0.00000 s
+Current time step: 0.00195 s
+Last iteration finished: 06:42:32
+CPU time per last iteration: 00:00:11
+CPU time left: 00:00:00
+Iterations per 1 travel: 68
+
+Goals
+    Name | Unit (SI) | Value           | Progress  | Critetia        | Delta           | Use in convergence
+
+Project details
+    Default fluids: 空气
+    Analysis type: External
+    Heat conduction in solids: Off
+    Radiation: Off
+    Time dependent: Off
+    Gravitational effects: On
+    Flow type: Laminar and turbulent
+    Cavitation: Off
+    Hign Mach number flow: On
+    Free surface: Off
+    Structural: Off
+    Electromagnetism: Off
+
+System info
+    Product: Flow Simulation 2022  x64 / 5426 / SOLVER ver. efd_2021_2.5390_01.07.2021+FS_turb_1.2
+    CAD version: SOLIDWORKS 2022 SP0.0
+    Computer name: ADMINISTRATOR
+    User name: LEN
+    Operating system: Windows 10 (or higher) (Version 10.0.22621)
+    Processors: 13th Gen Intel(R) Core(TM) i9-13980HX
+    Number of cores: 32
+    Memory: 4363 MB / 16003 MB
+

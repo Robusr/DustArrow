@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/1054996_signal_tower_icon.png</file>
+        <file>images/截图20230131194404.png</file>
+        <file>images/截图20230131195916.png</file>
+        <file>images/截图20230131200037.png</file>
+        <file>images/1054990_rocket_spacecraft_spaceship_icon.png</file>
+        <file>images/1054957_tools_screwdriver_wrench_icon.png</file>
+        <file>images/1055014_parachute_skydiving_icon.png</file>
+        <file>images/1055043_hourglass_time_timer_icon.png</file>
+        <file>images/1055080_bullseye_radar_target_icon.png</file>
+        <file>images/1054981_settings_sliders_icon.png</file>
+        <file>images/1055105_brightness_bulb_light bulb_icon.png</file>
+        <file>images/截图20230131211037.png</file>
+        <file>images/1055110_bolt_electricity_icon.png</file>
+        <file>images/截图20230131211942.png</file>
+        <file>images/截图20230131211852.png</file>
+        <file>images/截图20230131212325.png</file>
+        <file>images/截图20230131214743.png</file>
+    </qresource>
+</RCC>

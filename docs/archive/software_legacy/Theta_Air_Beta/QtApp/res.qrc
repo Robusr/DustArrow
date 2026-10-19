@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>images/22d9-khstaxs9625359.jpg</file>
+        <file>images/QQ图片20230226002350.jpg</file>
+        <file>images/微信截图_20230226001927.png</file>
+        <file>images/截图20230131194404.png</file>
+        <file>images/微信截图_20230226005403.png</file>
+        <file>images/微信截图_20230226004641.png</file>
+        <file>images/4023881_aerial_drone_uav_unmanned_vehicle_icon.png</file>
+    </qresource>
+</RCC>
