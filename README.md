@@ -2,7 +2,7 @@
   <img src="./media/photos/project/banner.png" alt="DustArrow X full assembly render" width="800"/>
 </p>
 
-<h1 align="center">DustArrow X · 沙尘利“箭”</h1>
+<h1 align="center">DustArrow X</h1>
 
 <p align="center">
   <strong>A modular telemetry system for 40 mm meteorological sounding rockets</strong>
