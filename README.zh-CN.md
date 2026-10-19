@@ -2,7 +2,7 @@
   <img src="./media/photos/project/banner.png" alt="DustArrow X 整机渲染图" width="800"/>
 </p>
 
-<h1 align="center">DustArrow X · 沙尘利“箭”</h1>
+<h1 align="center">DustArrow X</h1>
 
 <p align="center">
   <strong>面向 40 mm 气象探空火箭的模块化遥测系统</strong>
