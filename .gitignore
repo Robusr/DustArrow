@@ -19,6 +19,7 @@ logs/
 # Build and packaging
 build/
 dist/
+release/
 *.spec
 *.egg-info/
 .Python

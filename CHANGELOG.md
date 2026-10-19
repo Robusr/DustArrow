@@ -14,6 +14,8 @@ Keep a Changelog and Semantic Versioning.
   redistributed.
 - Five TV stills and two six-second GIF excerpts in `media/photos/project/`,
   embedded in all three READMEs with captions and rights notes.
+- A reproducible PyInstaller build script for the Windows one-folder ground
+  station release and release notes for v0.1.0.
 
 ### Changed
 
@@ -24,6 +26,10 @@ Keep a Changelog and Semantic Versioning.
   media-coverage sections.
 - Architecture-diagram labels now describe the system rather than implementation
   status.
+- The application resolves its window icon from the PyInstaller bundle when
+  frozen.
+- Windowed builds redirect stdout/stderr to devnull so runtime print() calls
+  do not crash the frozen application.
 
 ## [0.1.0] - 2026-10-20
 

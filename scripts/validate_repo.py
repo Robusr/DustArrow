@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "build", "dist"}
+SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "build", "dist", "release"}
 TEXT_SUFFIXES = {".md", ".py", ".csv", ".svg", ".txt", ".yml", ".yaml"}
 README_FILES = ["README.md", "README.zh-CN.md", "README.fr.md"]
 
