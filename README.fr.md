@@ -2,7 +2,7 @@
   <img src="./media/photos/project/banner.png" alt="Rendu de l’assemblage complet DustArrow X" width="800"/>
 </p>
 
-<h1 align="center">DustArrow X · 沙尘利«箭»</h1>
+<h1 align="center">DustArrow X</h1>
 
 <p align="center">
   <strong>Système de télémétrie modulaire pour fusée-sonde météorologique de 40 mm</strong>
