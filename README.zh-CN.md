@@ -190,12 +190,62 @@ python scripts/verify_theory/run_verification.py
 播出了本项目的专题。节目记录了 2023 年秋末初冬在固原市郊外戈壁滩的一次试飞：
 遥控点火改为线控点火，火箭离架；传感器段被找回，伞舱与推进模块丢失，作者
 估计回收完整度为 80%。节目还说明 X 意味着“无限的可能”，并展示地面站读取
-文本文件完成姿态反馈。
+文本文件完成姿态反馈。下方附有节目截图与两段短片段。
 
 - [媒体报道详情](docs/zh-CN/media_coverage.md)
 - 官方页面：[预告](https://www.kankanews.com/detail/ELwxNKJWGy9)、
   [专题](https://www.kankanews.com/detail/LMwVGm9WB2z)、
   [节目综述](https://www.kankanews.com/detail/boy4AKjBxQ1)
+
+### 节目截图
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_build.png" alt="DustArrow X 白板与打印箭体" width="640"/>
+  <br>
+  <em>DustArrow X 白板与打印箭体。</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_ground_station.png" alt="节目中的地面站界面" width="640"/>
+  <br>
+  <em>节目中的地面站界面。</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_modular.png" alt="装配中的模块化舱段" width="640"/>
+  <br>
+  <em>装配中的模块化舱段。</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_launch.png" alt="戈壁滩试飞升空" width="640"/>
+  <br>
+  <em>戈壁滩试飞升空。</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_recovery.png" alt="着陆点回收的降落伞" width="640"/>
+  <br>
+  <em>着陆点回收的降落伞。</em>
+</p>
+
+### 节目片段
+
+<p align="center">
+  <img src="./media/photos/project/tv_launch.gif" alt="发射片段，6 秒" width="800"/>
+  <br>
+  <em>发射片段，6 秒。</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_recovery.gif" alt="回收片段，6 秒" width="800"/>
+  <br>
+  <em>回收片段，6 秒。</em>
+</p>
+
+<p align="center">
+  <em>截图与片段来自 2024 年 1 月节目，版权归上海广播电视台所有。</em>
+</p>
 
 ## 设计规格
 
@@ -234,7 +284,8 @@ python scripts/verify_theory/run_verification.py
 ## 许可证
 
 代码、文档与作者原创媒体采用 [MIT](LICENSE)。第三方器件手册与赛事标志不在
-MIT 范围内。上海电视专题片不再分发，详见[参考资料](docs/references/README.md)。
+MIT 范围内。节目截图与 GIF 片段版权归上海广播电视台所有，不在 MIT 范围内；
+完整节目不再分发。
 
 ## 致谢
 

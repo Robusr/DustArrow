@@ -10,8 +10,10 @@ Keep a Changelog and Semantic Versioning.
 - Media-coverage documentation in English, Chinese and French, including the
   January 2024 *Young Edison* feature, video fingerprint and a fact-check table.
 - Errata item E-16 on the TV-documented test flight and its limits.
-- External TV feature metadata in `media/README.md`; the video is not
+- External TV feature metadata in `media/README.md`; the full video is not
   redistributed.
+- Five TV stills and two six-second GIF excerpts in `media/photos/project/`,
+  embedded in all three READMEs with captions and rights notes.
 
 ### Changed
 

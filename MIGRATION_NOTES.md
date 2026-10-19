@@ -95,6 +95,7 @@ All excluded files remain in the original source folder.
 ## External material added after reorganization
 
 The Shanghai TV feature `F:\Desktop\Robusr\《少年爱迪生》郭沫晗.mp4` was analyzed
-but not copied into the repository. It is a third-party production; metadata,
-SHA-256, rights and a fact-check are in `docs/*/media_coverage.md`. No broadcast
-stills or full transcript are committed.
+but the full video was not copied into the repository. Five stills and two short
+GIF excerpts are committed under `media/photos/project/tv_*`. They are a
+third-party production; metadata, SHA-256, rights and a fact-check are in
+`docs/*/media_coverage.md`. The full transcript is not committed.

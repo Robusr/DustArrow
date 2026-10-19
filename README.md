@@ -210,12 +210,62 @@ wired ignition, and the rocket left the rail. The sensor section was recovered;
 the parachute bay and propulsion module were lost. The student estimates 80%
 recovery completeness. The episode also explains that X means “infinite
 possibilities” and shows the ground station reading a text file for attitude
-feedback.
+feedback. Five stills and two short excerpts from the episode are included below.
 
 - [Detailed media coverage](docs/en/media_coverage.md)
 - Official pages: [preview](https://www.kankanews.com/detail/ELwxNKJWGy9),
   [episode](https://www.kankanews.com/detail/LMwVGm9WB2z),
   [season overview](https://www.kankanews.com/detail/boy4AKjBxQ1)
+
+### Program stills
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_build.png" alt="DustArrow X whiteboard and printed airframe" width="640"/>
+  <br>
+  <em>DustArrow X whiteboard and printed airframe.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_ground_station.png" alt="Ground-station interface during the programme" width="640"/>
+  <br>
+  <em>Ground-station interface during the programme.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_modular.png" alt="Modular bays during assembly" width="640"/>
+  <br>
+  <em>Modular bays during assembly.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_launch.png" alt="Lift-off during the Gobi test flight" width="640"/>
+  <br>
+  <em>Lift-off during the Gobi test flight.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_recovery.png" alt="Recovered parachute at the landing site" width="640"/>
+  <br>
+  <em>Recovered parachute at the landing site.</em>
+</p>
+
+### Program clips
+
+<p align="center">
+  <img src="./media/photos/project/tv_launch.gif" alt="Launch sequence, six-second excerpt" width="800"/>
+  <br>
+  <em>Launch sequence, six-second excerpt.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_recovery.gif" alt="Recovery sequence, six-second excerpt" width="800"/>
+  <br>
+  <em>Recovery sequence, six-second excerpt.</em>
+</p>
+
+<p align="center">
+  <em>Excerpts from the January 2024 programme; copyright Shanghai Media Group.</em>
+</p>
 
 ## Design specifications
 
@@ -258,9 +308,10 @@ ignition procedures or launch instructions.
 ## License
 
 Code, documentation and original media are released under [MIT](LICENSE).
-Third-party manufacturer datasheets and the contest logo are excluded. The
-Shanghai TV feature is not redistributed; see
-[References](docs/references/README.md).
+Third-party manufacturer datasheets and the contest logo are excluded. The five
+stills and two GIF excerpts from the Shanghai TV feature are included for
+documentation; their copyright remains with Shanghai Media Group and they are
+not covered by MIT. The full programme is not redistributed.
 
 ## Acknowledgments
 

@@ -213,12 +213,63 @@ filaire, et la fusée a quitté le rail. La section des capteurs a été récup�
 la baie de parachute et le module de propulsion ont été perdus. L’élève estime le
 taux de récupération à 80 %. L’épisode explique aussi que X signifie « des
 possibilités infinies » et montre la station au sol lisant un fichier texte pour
-le retour d’attitude.
+le retour d’attitude. Cinq images fixes et deux courts extraits de l’émission
+sont inclus ci-dessous.
 
 - [Couverture détaillée](docs/fr/media_coverage.md)
 - Pages officielles : [aperçu](https://www.kankanews.com/detail/ELwxNKJWGy9),
   [épisode](https://www.kankanews.com/detail/LMwVGm9WB2z),
   [présentation de la saison](https://www.kankanews.com/detail/boy4AKjBxQ1)
+
+### Images de l’émission
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_build.png" alt="Tableau DustArrow X et cellule imprimée" width="640"/>
+  <br>
+  <em>Tableau DustArrow X et cellule imprimée.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_ground_station.png" alt="Interface de la station au sol dans l’émission" width="640"/>
+  <br>
+  <em>Interface de la station au sol dans l’émission.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_modular.png" alt="Baies modulaires pendant l’assemblage" width="640"/>
+  <br>
+  <em>Baies modulaires pendant l’assemblage.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_launch.png" alt="Décollage lors de l’essai en vol dans le Gobi" width="640"/>
+  <br>
+  <em>Décollage lors de l’essai en vol dans le Gobi.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_still_recovery.png" alt="Parachute récupéré sur le site d’atterrissage" width="640"/>
+  <br>
+  <em>Parachute récupéré sur le site d’atterrissage.</em>
+</p>
+
+### Extraits vidéo
+
+<p align="center">
+  <img src="./media/photos/project/tv_launch.gif" alt="Séquence de lancement, extrait de six secondes" width="800"/>
+  <br>
+  <em>Séquence de lancement, extrait de six secondes.</em>
+</p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_recovery.gif" alt="Séquence de récupération, extrait de six secondes" width="800"/>
+  <br>
+  <em>Séquence de récupération, extrait de six secondes.</em>
+</p>
+
+<p align="center">
+  <em>Extraits de l’émission de janvier 2024 ; copyright Shanghai Media Group.</em>
+</p>
 
 ## Spécifications de conception
 
@@ -263,8 +314,9 @@ propergol, de procédure d’allumage ou d’instruction de lancement.
 
 Le code, la documentation et les médias originaux sont publiés sous
 [MIT](LICENSE). Les fiches techniques tierces et le logo du concours sont exclus.
-Le sujet télévisé de Shanghai n’est pas rediffusé ; voir
-[Références](docs/references/README.md).
+Les cinq images fixes et les deux extraits GIF du sujet télévisé sont inclus pour
+la documentation ; leur copyright reste celui de Shanghai Media Group et ils ne
+sont pas couverts par MIT. L’émission complète n’est pas rediffusée.
 
 ## Remerciements
 

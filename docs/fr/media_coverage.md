@@ -48,10 +48,13 @@ Pages officielles :
 | Taille | 76 333 836 octets, environ 72,8 Mo |
 | SHA-256 | `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9` |
 
-La vidéo est une production télévisée tierce et n’est **pas** copiée dans ce
-dépôt. Seules de courtes citations et des repères temporels sont conservés ; la
-vidéo complète, les sous-titres complets et les images fixes ne sont pas
-rediffusés.
+La vidéo complète est une production télévisée tierce et n’est **pas** copiée
+dans ce dépôt. Cinq images fixes et deux courts extraits GIF sont inclus sous
+`media/photos/project/` : `tv_still_build.png`, `tv_still_ground_station.png`,
+`tv_still_modular.png`, `tv_still_launch.png`, `tv_still_recovery.png`,
+`tv_launch.gif` et `tv_recovery.gif`. La vidéo complète, les sous-titres complets
+et les autres images ne sont pas rediffusés. Les extraits restent protégés par le
+copyright de Shanghai Media Group et sont exclus de MIT.
 
 ### Note de transcription
 
@@ -181,9 +184,10 @@ août 2023. Aucune pièce officielle n’a été retrouvée ; le fait n’est do
 
 - L’émission est protégée par le droit d’auteur de Shanghai Media Group et de ses
   producteurs. Kankan News interdit la reproduction sans autorisation.
-- Ce dépôt ne contient ni vidéo complète, ni sous-titres complets, ni images de
-  l’émission ; seulement de courtes citations, des repères temporels et un résumé
-  factuel.
+- Le dépôt inclut cinq images fixes et deux courts extraits GIF sous
+  `media/photos/project/` ; il ne contient ni vidéo complète, ni sous-titres
+  complets, ni autres images de l’émission. Les extraits restent des documents
+  tiers et sont exclus de MIT.
 - Citation suggérée : Shanghai Media Group, *Young Edison* saison 8, *Tomorrow’s
   World*, sujet Guo Mohan, 2024-01-27 ; SHA-256 du fichier local ci-dessus.
 - Les propos de l’élève sont des récits personnels. Les chiffres de performance

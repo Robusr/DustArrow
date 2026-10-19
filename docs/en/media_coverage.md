@@ -47,9 +47,13 @@ Official pages:
 | Size | 76,333,836 bytes, about 72.8 MB |
 | SHA-256 | `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9` |
 
-The video is a third-party television production and is **not** copied into this
-repository. Only short quotations and time codes are retained; the full video,
-full subtitles and still frames are not redistributed.
+The full video is a third-party television production and is **not** copied into
+this repository. Five stills and two short GIF excerpts are included under
+`media/photos/project/`: `tv_still_build.png`, `tv_still_ground_station.png`,
+`tv_still_modular.png`, `tv_still_launch.png`, `tv_still_recovery.png`,
+`tv_launch.gif` and `tv_recovery.gif`. The full video, full subtitles and other
+frames are not redistributed. The excerpts remain copyright Shanghai Media Group
+and are excluded from MIT.
 
 ### Transcription note
 
@@ -174,8 +178,10 @@ written as a fact or added to the main README specifications.
 
 - The programme is copyright Shanghai Media Group and its producers. Kankan News
   states that the material may not be reproduced without authorization.
-- This repository contains no full video, full subtitles or broadcast stills; only
-  short quotations, time codes and a factual summary.
+- The repository includes five stills and two short GIF excerpts under
+  `media/photos/project/`; it contains no full video, no full subtitle track and
+  no other broadcast frames. The excerpts remain third-party material and are
+  excluded from MIT.
 - Suggested citation: Shanghai Media Group, *Young Edison* Season 8, *Tomorrow’s
   World*, Guo Mohan feature, 2024-01-27; local file SHA-256 as above.
 - Statements by the student are personal accounts. Technical performance figures
