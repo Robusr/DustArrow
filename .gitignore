@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime data
+data.txt
+*.log
+logs/
+*.tmp
+*.temp
+
+# Build and packaging
+build/
+dist/
+*.spec
+*.egg-info/
+.Python
+
+# CAD and EDA backups
+~$*
+*.bak
+*.bak.*
+*.swp
+*.sldprt~
+*.sldasm~
+*.prt.*
+*.asm.*
+*.fld.bak
+*.zip.bak
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Media cache
+*.mp4.tmp
+*.gif.tmp

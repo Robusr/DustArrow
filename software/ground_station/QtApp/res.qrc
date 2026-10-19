@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/LOGO"/>
+    <qresource prefix="/new/prefix1">
+        <file>images/UI_LOGO.png</file>
+        <file>images/Ground.png</file>
+        <file>images/Monitor.png</file>
+        <file>images/KC_LOGO.png</file>
+        <file>images/name.png</file>
+        <file>images/English.png</file>
+    </qresource>
+</RCC>

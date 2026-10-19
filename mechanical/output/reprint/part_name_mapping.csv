@@ -1,0 +1,16 @@
+old_path,new_path
+mechanical/output/reprint/主控模块主体.STL,mechanical/output/reprint/reprint_main_control_module_body.stl
+mechanical/output/reprint/伞舱基座.STL,mechanical/output/reprint/reprint_parachute_bay_base.stl
+mechanical/output/reprint/伞舱滑块_新.STL,mechanical/output/reprint/reprint_parachute_bay_slider_v2.stl
+mechanical/output/reprint/伞舱滑块盖板.STL,mechanical/output/reprint/reprint_parachute_bay_slider_cover.stl
+mechanical/output/reprint/伞舱舵机轴A段.STL,mechanical/output/reprint/reprint_parachute_servo_shaft_a.stl
+mechanical/output/reprint/伞舱舵机轴B段.STL,mechanical/output/reprint/reprint_parachute_servo_shaft_b.stl
+mechanical/output/reprint/头锥A片.STL,mechanical/output/reprint/reprint_nose_cone_half_a.stl
+mechanical/output/reprint/头锥B片.STL,mechanical/output/reprint/reprint_nose_cone_half_b.stl
+mechanical/output/reprint/推进发动机支撑.STL,mechanical/output/reprint/reprint_motor_mount_support.stl
+mechanical/output/reprint/推进舱段主体.STL,mechanical/output/reprint/reprint_propulsion_bay_body.stl
+mechanical/output/reprint/数据模块主体.STL,mechanical/output/reprint/reprint_data_module_body.stl
+mechanical/output/reprint/测控模块主体.STL,mechanical/output/reprint/reprint_telemetry_module_body.stl
+mechanical/output/reprint/电源模块主体.STL,mechanical/output/reprint/reprint_power_module_body.stl
+mechanical/output/reprint/电源模块调试滑动盖板.STL,mechanical/output/reprint/reprint_power_module_debug_slider_cover.stl
+mechanical/output/reprint/鸭翼舱段主体.STL,mechanical/output/reprint/reprint_canard_bay_body.stl

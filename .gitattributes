@@ -1,0 +1,56 @@
+# Text and source
+*.md text eol=lf
+*.py text eol=lf
+*.csv text eol=lf
+*.svg text eol=lf
+*.txt text eol=lf
+*.bat text eol=crlf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Binary CAD and manufacturing data
+*.SLDPRT binary
+*.SLDASM binary
+*.STEP binary
+*.step binary
+*.STL binary
+*.stl binary
+*.fld binary
+*.fbd binary
+*.geber binary
+*.zip binary
+*.GKO binary
+*.GTL binary
+*.GBL binary
+*.GTO binary
+*.GBO binary
+*.GTS binary
+*.GBS binary
+*.DRL binary
+
+# Documents and media
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.avi binary
+
+# Generated Qt resources
+software/ground_station/res_rc.py linguist-generated=true
+software/ground_station/ui_MainWindow.py linguist-generated=true
+
+# Preserve archived originals and solver output byte-for-byte
+docs/archive/** -text
+simulation/cfd/** -text
+*.DAT binary
+*.stdout binary
+*.geom binary
+*.gdb binary
+*.cpt binary
+*.xmlconfig binary

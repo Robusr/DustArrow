@@ -1,0 +1,7 @@
+2023-Aug-17 06:32:37
+Computer name:	ADMINISTRATOR
+Number of cores used in calculation:	32
+Configuration name:	默认
+Project name:	X90Y90
+
+Warnings on last iteration: 
