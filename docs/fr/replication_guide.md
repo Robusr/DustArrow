@@ -33,10 +33,11 @@ les charges réelles, puis les consigner dans le journal de fabrication.
 
 ## 2. Fabriquer l’électronique
 
-1. Envoyer les neuf archives Gerber de `electronics/output/gerber/` à un
+1. Envoyer les dix archives Gerber de `electronics/output/gerber/` à un
    fabricant.
-2. Commander les pièces depuis `BOM/bill_of_materials.csv`. Seize lignes n’ont
-   ni prix ni référence fournisseur ; les compléter avant commande.
+2. Commander les pièces depuis `BOM/bill_of_materials.csv`. Onze lignes n’ont
+   pas de prix et seize n’ont pas de nom de fournisseur ; les compléter avant
+   commande.
 3. Vérifier les contours des cartes par rapport aux baies imprimées. Les
    dimensions mesurées figurent dans `docs/fr/system_design.md`.
 4. Inspecter les bords à doigts dorés et les connecteurs FPC avant soudure.

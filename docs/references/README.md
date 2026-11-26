@@ -41,7 +41,7 @@ The January 2024 *Young Edison* feature is documented in
 
 The local video is held at `F:\Desktop\Robusr\《少年爱迪生》郭沫晗.mp4` with
 SHA-256 `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9`.
-The full programme is not redistributed. Five stills and two short GIF excerpts
+The full programme is not redistributed. Eight stills and three short GIF excerpts
 are included under `../../media/photos/project/` for documentation. They remain
 copyright Shanghai Media Group and are excluded from MIT. Kankan News states
 that the material may not be reproduced without authorization.

@@ -16,8 +16,8 @@ flight console.
   serial data.
 - The command buttons (emergency parachute, coordinate request, high-altitude
   sampling, attitude calibration, data refresh, self-test) are not connected.
-- The OpenGL attitude widget is constructed but commented out; the archived UI
-  path does not render live attitude.
+- The OpenGL widget is constructed and draws a static cube; the archived UI has
+  no live attitude update.
 - There is no timestamped logger, checksum, frame parser or command uplink.
 - `data.txt` is overwritten on every received frame.
 
@@ -30,12 +30,16 @@ python appMain.py
 
 The app expects a serial adapter on the port selected in the drop-down list. It
 uses the text protocol emitted by the archived flight firmware, which is not
-included in this repository.
+included in this repository. The archived code calls `ctypes.windll` at import,
+so it is Windows-only and does not start on macOS or Linux.
 
 ## Known defects
 
 - `data.txt` is a runtime file and is ignored by Git.
-- The legacy UI generates the attitude cube only when its (commented-out) widget
-  is enabled and is clicked.
+- The OpenGL widget is constructed by the generated UI and draws a static cube.
+  Its live `paintCube` update is commented out; a mouse click reads `data.txt`
+  and rotates the cube.
+- A serial chunk that does not match `X...Y...GX...GY...GZ...` can raise
+  `AttributeError` in `DATA()` before `self.Gyrox` is assigned.
 - Only roll and pitch are parsed, so the display cannot represent full 3D
   attitude or heading.

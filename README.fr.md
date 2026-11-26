@@ -24,14 +24,15 @@
 
 ---
 
-## Origine du nom
-
-Le nom chinois « 沙尘利箭 » associe « 沙尘 » (poussière de sable) et « 利箭 »
-(flèche acérée). Il désigne la fusée-sonde et un instrument utile contre les
-tempêtes de poussière. Le nom anglais **DustArrow** en est la traduction directe.
-La structure modulaire s’inspire des armoires expérimentales de la station
-spatiale chinoise. La troisième génération ajoute **X** ; l’auteur explique que X
-signifie « des possibilités infinies ».
+<p align="center">
+  <img src="./media/photos/project/system_overview.svg" alt="Vue d’ensemble du système DustArrow X" width="100%"/>
+  <br>
+  <em>Figure 1 | Vue d’ensemble. La cellule de 40 mm porte neuf modules
+  remplaçables répartis en quatre sections fonctionnelles ; la chaîne avionique
+  archivée et la station au sol sont représentées avec la trame CRC-16 proposée.
+  Le profil de vol est conceptuel : l’archive ne contient ni journal de télémétrie
+  ni données de vol quantitatives.</em>
+</p>
 
 ## À propos du projet
 
@@ -42,7 +43,12 @@ dans *Young Edison* saison 8 sur la télévision de Shanghai en janvier 2024. Le
 projet mesure la structure verticale de l’atmosphère pendant les épisodes de
 poussière avec une fusée-sonde à faible coût.
 
-La cellule mesure 40 mm de diamètre et comporte dix sections fonctionnelles. Les
+La cellule mesure 40 mm de diamètre. Le sujet télévisé de janvier 2024 présente
+quatre sections fonctionnelles et un tableau blanc de neuf modules remplaçables.
+Ce dépôt les associe ainsi : manœuvre (parachute, canards), détection (poussière,
+gaz, CO/fumée), contrôle (modules commande, exploration, données) et puissance
+(module d’alimentation, propulsion). La CAO ajoute la section
+propulsion/empennage, soit dix baies fabriquables. Les
 modules sont reliés par des contacts à doigts dorés, avec un circuit imprimé
 flexible dans chaque baie. L’électronique de bord s’articule autour d’un RP2040,
 d’un MPU6050, d’un BMP280, d’un ATGM336H, d’un modem LoRa A39C, d’un capteur de
@@ -50,17 +56,30 @@ poussière GP2Y1014AU0F et de capteurs de gaz MQ. Le segment sol est une
 application Python/PyQt5.
 
 Cette archive couvre la conception mécanique, les données de fabrication
-électronique, le code de la station au sol, le rapport original, la présentation
-et les médias. Le code du firmware de vol et les journaux de vol sont hors du
-périmètre de cette archive ; voir [firmware/README.md](firmware/README.md).
+électronique, le code de la station au sol, le rapport original, la présentation,
+les médias et la nomenclature des modules documentée à la télévision. Le code du
+firmware de vol et les journaux de vol sont hors du périmètre de cette archive ;
+voir [firmware/README.md](firmware/README.md).
+
+## Origine du nom
+
+Le nom chinois « 沙尘利箭 » associe « 沙尘 » (poussière de sable) et « 利箭 »
+(flèche acérée). Il désigne la fusée-sonde et un instrument utile contre les
+tempêtes de poussière. Le nom anglais **DustArrow** en est la traduction directe.
+La structure modulaire s’inspire des armoires expérimentales de la station
+spatiale chinoise. La troisième génération ajoute **X** ; l’auteur explique que X
+signifie « des possibilités infinies ».
 
 ## Caractéristiques principales
 
-- **Cellule modulaire de 40 mm** : dix sections, contacts à doigts dorés et FPC,
-  pièces imprimées remplaçables individuellement.
+- **Cellule modulaire de 40 mm** : neuf modules remplaçables et une section
+  propulsion/empennage (dix baies CAO), contacts à doigts dorés et FPC ; pièces
+  imprimées remplaçables individuellement.
 - **Chaîne de capteurs RP2040** : IMU six axes, baromètre, GNSS, poussière et gaz.
 - **Liaison descendante LoRa** : modem série A39C-T400A22D1a reçu à 9600 bauds.
-- **Station au sol PyQt5** : six courbes, vue d’attitude 3D et acquisition série.
+- **Station au sol PyQt5 (prototype)** : acquisition série, six courbes de
+  démonstration et cube d’attitude statique ; les boutons de commande ne sont pas
+  câblés.
 - **Fichiers de fabrication ouverts** : sources SolidWorks, STL, STEP, Gerber,
   nomenclature et sérigraphies.
 - **Suite de vérification** : 32 tests Python et 16 errata documentés couvrant les
@@ -69,22 +88,56 @@ périmètre de cette archive ; voir [firmware/README.md](firmware/README.md).
 ## Architecture du système
 
 <p align="center">
-  <img src="./media/photos/project/system_architecture.svg" alt="Architecture du système DustArrow X" width="900"/>
+  <img src="./media/photos/project/system_architecture.svg" alt="Architecture et chemins de données du système DustArrow X" width="100%"/>
   <br>
-  <em>Architecture du système. Les traits pointillés représentent la liaison radio ; la voie de commande est indiquée à titre de référence.</em>
+  <em>Figure 2 | Architecture et chemins de données. Les traits pleins sont des
+  liaisons documentées ou implémentées ; le bleu pointillé est la liaison
+  descendante LoRa ; l’ambre pointillé marque la trame CRC-16 proposée et la voie
+  de commande non implémentée dans le code archivé.</em>
 </p>
 
-- **Mécanique** : ogive et baie de parachute, baies de télémétrie, de données,
-  d’alimentation, trois baies de capteurs, baie de commande principale, baie
-  canard et baie de propulsion/empennage. Le parachute utilise un servo à grande
-  ouverture ; les canards forment un mécanisme à deux canaux.
+Le sujet télévisé montre quatre sections fonctionnelles et un tableau blanc de
+neuf modules remplaçables. Ce dépôt associe les modules du tableau aux sections
+ainsi : manœuvre (parachute et canards), détection (capteurs de poussière, de gaz
+et de CO/fumée), contrôle (modules commande, exploration et données) et puissance
+(module d’alimentation et propulsion). La CAO ajoute la baie
+propulsion/empennage, soit dix baies fabriquables. Les noms sont ceux du tableau
+blanc ; le regroupement est une interprétation des libellés du sujet télévisé.
+
+<p align="center">
+  <img src="./media/photos/project/tv_module_nomenclature.png" width="330" alt="Tableau blanc listant les neuf modules DustArrow X"/>
+  <img src="./media/photos/project/tv_functional_sections.png" width="440" alt="Quatre sections fonctionnelles annotées dans le sujet télévisé"/>
+</p>
+<p align="center"><em>Preuves principales de la structure modulaire. À gauche : le
+tableau blanc de l’auteur nomme neuf modules (1 parachute, 2 canards, 3
+poussière, 4 gaz, 5 CO, 6 commande, 7 exploration, 8 données, 9 alimentation).
+À droite : le sujet télévisé de janvier 2024 annote les quatre sections
+fonctionnelles — manœuvre, détection, contrôle et puissance. Copyright Shanghai
+Media Group ; voir Couverture médiatique.</em></p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_sensor_stack.png" width="330" alt="Section de détection à trois capteurs : poussière, gaz et fumée"/>
+  <img src="./media/photos/project/tv_module_interface.gif" width="440" alt="Deux modules reliés par un connecteur à doigts dorés"/>
+</p>
+<p align="center"><em>Détails de la détection et de l’interface. À gauche : la
+section de détection à trois capteurs (poussière, gaz nocifs et fumée/CO). À
+droite : deux modules imprimés reliés par l’interface à doigts dorés. Copyright
+Shanghai Media Group.</em></p>
+
+- **Mécanique** : ogive et baie de parachute, baie canard, trois modules de
+  capteurs (poussière, gaz, CO/fumée), module commande, module exploration,
+  module données, module alimentation et section propulsion/empennage. Le
+  parachute utilise un servo à grande ouverture ; les canards forment un
+  mécanisme à deux canaux.
 - **Électronique** : neuf nomenclatures et dix archives Gerber. Les cartes
   principales s’articulent autour du RP2040, du MPU6050, du BMP280, de
   l’ATGM336H et de l’A39C.
 - **Liaison descendante** : flux texte à 9600 bauds, 8-N-1. Une trame binaire avec
-  CRC-16 est définie et testée dans `scripts/verify_theory/test_protocol.py`.
+  CRC-16 est définie et testée dans `scripts/verify_theory/test_protocol.py`
+  (figure 3).
 - **Station au sol** : PyQt5, Matplotlib et OpenGL ; acquisition série, analyse de
-  texte, six courbes et vue d’attitude.
+  texte, six courbes de démonstration et cube d’attitude statique. La voie de
+  commande n’est pas implémentée.
 
 ## Théorie et conception
 
@@ -106,6 +159,18 @@ $$
 \theta_k = \alpha\,\theta_{\mathrm{acc},k} +
 (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
+
+<p align="center">
+  <img src="./media/photos/project/telemetry_frame.svg" alt="Trame de télémétrie proposée : en-tête, longueur, charge utile, CRC-16 et terminateur" width="95%"/>
+  <br>
+  <em>Figure 3 | Trame de télémétrie proposée. La trame est testée dans
+  <code>scripts/verify_theory/test_protocol.py</code> ; il s’agit d’une
+  recommandation, non du format du firmware archivé.</em>
+</p>
+
+La station au sol archivée utilise à la place un flux texte libre
+(`X...Y...GX...GY...GZ...`) sans en-tête, longueur ni somme de contrôle. Voir
+[Conception du système](docs/fr/system_design.md) pour le chemin des données.
 
 La démonstration complète, les conventions de repère et les corrections se
 trouvent dans [Principe de fonctionnement](docs/fr/theory_of_operation.md) et les
@@ -145,9 +210,11 @@ incluent `part_name_mapping.csv`. La correspondance complète figure dans
 | Lignes de nomenclature | 48 |
 | Pièces | 57 |
 | Sous-total chiffré | 31,44 CNY |
-| Lignes sans prix | 16 |
+| Lignes sans prix | 11 |
+| Lignes sans nom de fournisseur | 16 |
 
-Les prix proviennent des exports de modules du 2023-08-15. Le détail complet est
+Les prix proviennent des exports de modules du 2023-08-15. Onze lignes n’ont pas
+de prix et seize lignes n’ont pas de nom de fournisseur. Le détail complet est
 dans [BOM/bill_of_materials.csv](BOM/bill_of_materials.csv) ; le résumé par
 module est dans [BOM/bom_summary.csv](BOM/bom_summary.csv).
 
@@ -161,9 +228,10 @@ python -m pip install -r requirements.txt
 python appMain.py
 ```
 
-L’application énumère les ports série, ouvre le port en 9600 8-N-1, analyse les
-champs `X`, `Y`, `GX`, `GY`, `GZ` et écrit `data.txt`. Le chemin de données
-implémenté est décrit dans
+L’application archivée est réservée à Windows : elle appelle `ctypes.windll` à
+l’import et ne démarre pas sous macOS ou Linux. Elle énumère les ports série,
+ouvre le port en 9600 8-N-1, analyse les champs `X`, `Y`, `GX`, `GY`, `GZ` et
+écrit `data.txt`. Le chemin de données implémenté est décrit dans
 [software/ground_station/README.md](software/ground_station/README.md).
 
 **Mécanique et électronique** : ouvrir les assemblages dans
@@ -195,7 +263,8 @@ python scripts/verify_theory/run_verification.py
 <p align="center">
   <img src="./media/photos/project/ground_station_ui.png" alt="Disposition de l’interface de la station au sol" width="800"/>
   <br>
-  <em>Disposition de l’interface de la station au sol.</em>
+  <em>Interface archivée de la station au sol. Les six courbes sont des courbes
+  de démonstration et les boutons de commande ne sont pas câblés.</em>
 </p>
 
 Résultat de vérification : 32 tests réussis. La suite couvre les formules
@@ -213,8 +282,11 @@ filaire, et la fusée a quitté le rail. La section des capteurs a été récup�
 la baie de parachute et le module de propulsion ont été perdus. L’élève estime le
 taux de récupération à 80 %. L’épisode explique aussi que X signifie « des
 possibilités infinies » et montre la station au sol lisant un fichier texte pour
-le retour d’attitude. Cinq images fixes et deux courts extraits de l’émission
-sont inclus ci-dessous.
+le retour d’attitude. Cinq images fixes liées au vol et deux courts extraits de
+l’émission sont inclus ci-dessous. Trois images de modules et d’assemblage ainsi
+qu’un GIF du même sujet sont utilisés dans
+[Architecture du système](#architecture-du-système) ; la même note de droits
+s’applique.
 
 - [Couverture détaillée](docs/fr/media_coverage.md)
 - Pages officielles : [aperçu](https://www.kankanews.com/detail/ELwxNKJWGy9),
@@ -276,6 +348,9 @@ sont inclus ci-dessous.
 | Paramètre | Valeur | Source |
 |---|---|---|
 | Diamètre de la cellule | 40,0 mm | Mesuré, boîte englobante STL |
+| Modules remplaçables | 9 (tableau blanc, sujet télévisé) | Sujet télévisé |
+| Sections fonctionnelles | 4 : manœuvre, détection, contrôle, puissance | Sujet télévisé |
+| Baies CAO | 10, section propulsion/empennage incluse | CAO et rapport |
 | Profil de l’ogive | Courbe de von Kármán | Formule du rapport, vérifiée numériquement |
 | Contour Command A | 30 × 40 mm | Mesuré, contour Gerber |
 | Contour Power | 25,0 × 25,1 mm | Mesuré, contour Gerber |
@@ -314,9 +389,9 @@ propergol, de procédure d’allumage ou d’instruction de lancement.
 
 Le code, la documentation et les médias originaux sont publiés sous
 [MIT](LICENSE). Les fiches techniques tierces et le logo du concours sont exclus.
-Les cinq images fixes et les deux extraits GIF du sujet télévisé sont inclus pour
-la documentation ; leur copyright reste celui de Shanghai Media Group et ils ne
-sont pas couverts par MIT. L’émission complète n’est pas rediffusée.
+Les huit images fixes et les trois extraits GIF du sujet télévisé sont inclus
+pour la documentation ; leur copyright reste celui de Shanghai Media Group et ils
+ne sont pas couverts par MIT. L’émission complète n’est pas rediffusée.
 
 ## Remerciements
 

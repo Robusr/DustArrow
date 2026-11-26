@@ -25,7 +25,7 @@ not modified. See `../../MIGRATION_NOTES.md` for the full path mapping.
 ## External media
 
 The January 2024 Shanghai TV feature is held outside the repository; the full
-video is not archived here. Five stills and two short GIF excerpts are in
+video is not archived here. Eight stills and three short GIF excerpts are in
 `../../media/photos/project/tv_*`. Metadata, rights and the fact-check are in
 `../en/media_coverage.md`.
 

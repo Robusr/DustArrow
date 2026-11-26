@@ -12,18 +12,24 @@ sources mécaniques sont organisées par révision :
 - `mechanical/source/reprint_models/` : huit pièces révisées pour une seconde
   impression.
 
-La cellule finale comporte dix sections fonctionnelles :
+Le sujet télévisé présente neuf modules remplaçables répartis en quatre sections
+fonctionnelles. La CAO ajoute une section propulsion/empennage, soit dix baies
+fabriquables :
 
-1. Ogive et baie de parachute
-2. Baie de télémétrie
-3. Baie de données
-4. Baie d’alimentation
-5. Baie du capteur de poussière
-6. Baie du capteur de gaz
-7. Baie du capteur de fumée
-8. Baie de commande principale
-9. Baie des plans canard
-10. Baie de propulsion et d’empennage
+1. Parachute (ogive et baie de parachute)
+2. Canards
+3. Capteur de poussière
+4. Capteur de gaz
+5. Capteur de CO/fumée
+6. Module commande
+7. Module exploration
+8. Module données
+9. Module alimentation
+10. Propulsion et empennage
+
+Manœuvre = 1–2, détection = 3–5, contrôle = 6–8, puissance = 9–10. Le tableau
+blanc du sujet télévisé liste les modules 1–9 ; la baie propulsion/empennage est
+l’ajout de la CAO.
 
 Les sorties d’impression comprennent 28 fichiers STL dans
 `mechanical/output/3dp/` et 15 STL de réimpression dans
@@ -61,8 +67,9 @@ contour Gerber.
 | ServoHAT | 25 × 25,9 mm | Broche servo, trois LED | Servo canard / parachute |
 | COSensorHAT | Gerber seul | aucune nomenclature | Extension capteur de CO |
 
-La nomenclature consolidée compte 48 lignes et 57 pièces. Seize lignes n’ont pas
-de prix ; le total connu de 31,44 CNY est une borne inférieure historique.
+La nomenclature consolidée compte 48 lignes et 57 pièces. Onze lignes n’ont pas
+de prix et seize n’ont pas de nom de fournisseur ; le total connu de 31,44 CNY
+est une borne inférieure historique.
 
 ## Station au sol
 
@@ -76,7 +83,7 @@ analyse par expression régulière  X...Y...GX...GY...GZ...
         │
         ├── data.txt (écrasé à chaque trame)
         ├── six canevas Matplotlib (courbe factice y = x²)
-        └── cube OpenGL (désactivé dans le code archivé)
+        └── cube OpenGL (statique ; mise à jour en direct commentée)
 ```
 
 Les six courbes prévues sont l’altitude, la pression, la température, l’humidité,

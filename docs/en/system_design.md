@@ -12,18 +12,22 @@ mechanical source is organized by revision:
 - `mechanical/source/reprint_models/` — eight revised parts prepared for a
   second print run.
 
-The formal airframe has ten functional sections:
+The TV feature presents nine replaceable modules in four functional sections.
+The CAD adds a propulsion/fin section, giving ten manufacturable bays:
 
-1. Nose cone and parachute bay
-2. Telemetry bay
-3. Data bay
-4. Power bay
-5. Dust-sensor bay
-6. Gas-sensor bay
-7. Smoke-sensor bay
-8. Main-control bay
-9. Canard bay
-10. Propulsion and fin bay
+1. Parachute (nose cone and parachute bay)
+2. Canard
+3. Dust sensor
+4. Gas sensor
+5. CO/smoke sensor
+6. Command module
+7. Exploration module
+8. Data module
+9. Power module
+10. Propulsion and fins
+
+Maneuver = 1–2, detection = 3–5, control = 6–8, power = 9–10. The whiteboard in
+the TV feature lists modules 1–9; the propulsion/fin bay is the CAD addition.
 
 The printed output set contains 28 STL files in `mechanical/output/3dp/` and 15
 reprint STLs in `mechanical/output/reprint/`. The nose profile follows the von
@@ -59,8 +63,9 @@ EasyEDA board file. Board outlines were measured from the Gerber outline layer.
 | ServoHAT | 25 × 25.9 mm | Servo header, three LEDs | Canard / parachute servo |
 | COSensorHAT | Gerber only | no BOM in archive | CO sensor shield |
 
-The consolidated BOM has 48 line items and 57 parts. Sixteen lines have no
-price; the known total is CNY 31.44 and is a historical lower bound.
+The consolidated BOM has 48 line items and 57 parts. Eleven lines have no price
+and sixteen have no supplier name; the known total is CNY 31.44 and is a
+historical lower bound.
 
 ## Ground station
 
@@ -74,7 +79,7 @@ regex parser  X...Y...GX...GY...GZ...
         │
         ├── data.txt (overwritten each frame)
         ├── six Matplotlib canvases (placeholder y = x²)
-        └── OpenGL cube (disabled in the archived code)
+        └── OpenGL cube (static; live update commented out)
 ```
 
 The six planned plots are altitude, pressure, temperature, humidity, visibility

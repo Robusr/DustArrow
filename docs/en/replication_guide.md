@@ -33,9 +33,9 @@ them in your build log.
 
 ## 2. Fabricate the electronics
 
-1. Send the nine Gerber archives in `electronics/output/gerber/` to a fabricator.
-2. Order parts from `BOM/bill_of_materials.csv`. Sixteen lines have no price or
-   supplier part; resolve them before ordering.
+1. Send the ten Gerber archives in `electronics/output/gerber/` to a fabricator.
+2. Order parts from `BOM/bill_of_materials.csv`. Eleven lines have no price and
+   sixteen have no supplier name; resolve them before ordering.
 3. Check the board outlines against the printed bays. The measured outlines are
    listed in `docs/en/system_design.md`.
 4. Inspect the gold-finger edges and FPC connectors before soldering.

@@ -24,12 +24,13 @@
 
 ---
 
-## 名称来源
-
-中文名“沙尘利箭”由“沙尘”和“利箭”组成：“沙尘”指项目面向的沙尘天气，“利箭”
-既指探空火箭，也含“有利于治理”的意思。英文名 **DustArrow** 是中文名的直译。
-模块化结构参考了中国空间站实验柜的设计思路。第三代在名称后加上 **X**；作者
-解释 X 意味着“无限的可能”。
+<p align="center">
+  <img src="./media/photos/project/system_overview.svg" alt="DustArrow X 系统总览" width="100%"/>
+  <br>
+  <em>图 1 | 系统总览。40 mm 箭体由九个可替换模块组成，归为四个功能段；图中
+  同时给出归档航电链路、地面站与建议的 CRC-16 帧。飞行剖面为概念示意，归档中
+  没有遥测日志或定量飞行数据。</em>
+</p>
 
 ## 项目简介
 
@@ -38,40 +39,75 @@ Beta。项目参加全国青少年科技创新大赛，并于 2024 年 1 月登�
 《少年爱迪生》第八季《明日世界》。项目利用低成本探空火箭获取沙尘天气下垂直
 方向的气象数据。
 
-箭体直径 40 mm，由 10 个功能段组成。模块之间使用金手指板对板连接，模块内部
-使用 FPC 排线。箭载电子以 RP2040 为核心，配合 MPU6050、BMP280、ATGM336H、
-A39C LoRa、GP2Y1014AU0F 和 MQ 系列气体传感器；地面端是 Python/PyQt5 地面站
-应用。
+箭体直径 40 mm。2024 年 1 月的电视专题给出四个功能段，并用白板列出九个可
+替换模块。本仓库把白板模块对应为：机动（降落伞、鸭翼）、探测（粉尘、气体、
+CO/烟雾）、控制（命令、探索、数据）和动力（电源、推进）。CAD 另含推进尾翼段，
+共十个可制造舱段。模块之间
+使用金手指板对板连接，模块内部使用 FPC 排线。箭载电子以 RP2040 为核心，配合
+MPU6050、BMP280、ATGM336H、A39C LoRa、GP2Y1014AU0F 和 MQ 系列气体传感器；
+地面端是 Python/PyQt5 地面站应用。
 
-本归档覆盖机械设计、电子制造数据、地面站源码、原始报告、答辩材料和媒体。
-箭载固件源码与飞行日志不在本归档范围内，见
+本归档覆盖机械设计、电子制造数据、地面站源码、原始报告、答辩材料、媒体，以及
+电视专题中的模块命名。箭载固件源码与飞行日志不在本归档范围内，见
 [firmware/README.md](firmware/README.md)。
+
+## 名称来源
+
+中文名“沙尘利箭”由“沙尘”和“利箭”组成：“沙尘”指项目面向的沙尘天气，“利箭”
+既指探空火箭，也含“有利于治理”的意思。英文名 **DustArrow** 是中文名的直译。
+模块化结构参考了中国空间站实验柜的设计思路。第三代在名称后加上 **X**；作者
+解释 X 意味着“无限的可能”。
 
 ## 主要特性
 
-- **40 mm 模块化箭体**：10 个功能段，金手指与 FPC 连接，打印件可单独替换。
+- **40 mm 模块化箭体**：九个可替换模块与推进尾翼段（共十个 CAD 舱段），金手指
+  与 FPC 连接，打印件可单独替换。
 - **RP2040 传感栈**：六轴 IMU、气压计、GNSS 与多路气体/粉尘传感器。
 - **LoRa 下行链路**：A39C-T400A22D1a 串口数传，地面端以 9600 波特率接收。
-- **PyQt5 地面站**：六路曲线、3D 姿态视图与串口采集。
+- **PyQt5 地面站原型**：串口采集、六路占位曲线与静态姿态立方体；命令按钮未接线。
 - **开放的制造文件**：SolidWorks 源文件、STL、STEP、Gerber、BOM 和丝印图。
 - **验证套件**：32 项 Python 测试与 16 项勘误记录，覆盖姿态数学、分帧与几何。
 
 ## 系统架构
 
 <p align="center">
-  <img src="./media/photos/project/system_architecture.svg" alt="DustArrow X 系统架构图" width="900"/>
+  <img src="./media/photos/project/system_architecture.svg" alt="DustArrow X 系统架构与数据路径" width="100%"/>
   <br>
-  <em>系统架构。虚线为无线链路；地面站命令链路在图中一并标出。</em>
+  <em>图 2 | 系统架构与数据路径。实线为已记录或已实现的链路；蓝色虚线为 LoRa
+  下行；琥珀色点线标出建议的 CRC-16 帧，以及归档代码中未实现的命令链路。</em>
 </p>
 
-- **机械**：头锥与伞舱、测控舱、数据舱、电源舱、三个传感器舱、主控舱、
-  鸭翼舱、推进尾翼舱。伞舱由单舵机驱动大角度舱盖，鸭翼舱为双通道空气舵。
+电视专题给出四个功能段，并用白板列出九个可替换模块。本仓库把白板模块对应为
+机动（降落伞与鸭翼）、探测（粉尘、气体与 CO/烟雾传感器）、控制（命令、探索与
+数据模块）和动力（电源模块与推进）。CAD 另含推进尾翼段，共十个可制造舱段。
+模块名采用白板命名，功能段归属是对电视标签的解读。
+
+<p align="center">
+  <img src="./media/photos/project/tv_module_nomenclature.png" width="330" alt="白板上的九个 DustArrow X 模块"/>
+  <img src="./media/photos/project/tv_functional_sections.png" width="440" alt="电视专题中标注的四个功能段"/>
+</p>
+<p align="center"><em>模块结构的主要依据。左：作者白板列出九个模块（1 降落伞、
+2 鸭翼、3 粉尘、4 气体、5 CO、6 命令、7 探索、8 数据、9 电源）。右：2024 年
+1 月电视专题标注的四个功能段——机动、探测、控制、动力。版权归上海广播电视台
+所有，见媒体报道。</em></p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_sensor_stack.png" width="330" alt="粉尘、有害气体与烟雾组成的三传感器探测段"/>
+  <img src="./media/photos/project/tv_module_interface.gif" width="440" alt="两个模块通过金手指板对板连接"/>
+</p>
+<p align="center"><em>探测段与接口细节。左：由粉尘、有害气体与烟雾/CO 组成的
+三传感器探测段。右：两个打印模块通过金手指板对板接口连接。版权归上海广播电视台
+所有。</em></p>
+
+- **机械**：头锥与伞舱、鸭翼舱、三个传感器模块（粉尘、气体、CO/烟雾）、命令
+  模块、探索模块、数据模块、电源模块与推进尾翼段。伞舱由单舵机驱动大角度舱盖，
+  鸭翼舱为双通道空气舵。
 - **电子**：9 个模块 BOM、10 个 Gerber 包。主控与测控板围绕 RP2040、
   MPU6050、BMP280、ATGM336H 和 A39C 构建。
 - **下行**：9600 波特率、8-N-1 文本流；CRC-16 二进制帧格式已在
-  `scripts/verify_theory/test_protocol.py` 中定义并测试。
-- **地面站**：PyQt5、Matplotlib 与 OpenGL；串口采集、文本解析、六路曲线与
-  姿态视图。
+  `scripts/verify_theory/test_protocol.py` 中定义并测试（图 3）。
+- **地面站**：PyQt5、Matplotlib 与 OpenGL；串口采集、文本解析、六路占位曲线
+  与静态姿态立方体。命令链路未实现。
 
 ## 理论与设计
 
@@ -92,6 +128,17 @@ $$
 \theta_k = \alpha\,\theta_{\mathrm{acc},k} +
 (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
+
+<p align="center">
+  <img src="./media/photos/project/telemetry_frame.svg" alt="建议的遥测帧：帧头、长度、载荷、CRC-16 与帧尾" width="95%"/>
+  <br>
+  <em>图 3 | 建议的遥测帧。该帧在
+  <code>scripts/verify_theory/test_protocol.py</code> 中测试，是建议方案，
+  并非归档固件的实际格式。</em>
+</p>
+
+归档地面站使用的是无帧头、无长度、无校验的自由文本流
+（`X...Y...GX...GY...GZ...`）。数据路径见[系统设计](docs/zh-CN/system_design.md)。
 
 完整推导、坐标约定与修正见[工作原理](docs/zh-CN/theory_of_operation.md)和
 [勘误记录](docs/errata.md)。
@@ -129,9 +176,10 @@ DustArrow/
 | BOM 行数 | 48 |
 | 元件总数 | 57 |
 | 已标价小计 | CNY 31.44 |
-| 未标价行数 | 16 |
+| 未标价行数 | 11 |
+| 无供应商名称行数 | 16 |
 
-价格来自 2023-08-15 的模块导出文件。完整明细见
+价格来自 2023-08-15 的模块导出文件。11 行未标价，16 行未填写供应商名称。完整明细见
 [BOM/bill_of_materials.csv](BOM/bill_of_materials.csv)，按模块汇总见
 [BOM/bom_summary.csv](BOM/bom_summary.csv)。
 
@@ -145,8 +193,9 @@ python -m pip install -r requirements.txt
 python appMain.py
 ```
 
-应用会枚举串口，以 9600 8-N-1 打开，解析 `X`、`Y`、`GX`、`GY`、`GZ` 字段并写入
-`data.txt`。已实现的数据路径见
+归档程序仅支持 Windows：导入时调用 `ctypes.windll`，在 macOS 或 Linux 上无法
+启动。应用会枚举串口，以 9600 8-N-1 打开，解析 `X`、`Y`、`GX`、`GY`、`GZ`
+字段并写入 `data.txt`。已实现的数据路径见
 [software/ground_station/README.md](software/ground_station/README.md)。
 
 **机械与电子**：从 [mechanical/source/formal/](mechanical/source/formal/) 打开
@@ -177,7 +226,7 @@ python scripts/verify_theory/run_verification.py
 <p align="center">
   <img src="./media/photos/project/ground_station_ui.png" alt="地面站界面布局" width="800"/>
   <br>
-  <em>地面站界面布局。</em>
+  <em>归档地面站界面。六路曲线为占位曲线，命令按钮未接线。</em>
 </p>
 
 验证结果：32 项测试全部通过，覆盖姿态公式、互补滤波、四元数、帧解析、
@@ -190,7 +239,8 @@ python scripts/verify_theory/run_verification.py
 播出了本项目的专题。节目记录了 2023 年秋末初冬在固原市郊外戈壁滩的一次试飞：
 遥控点火改为线控点火，火箭离架；传感器段被找回，伞舱与推进模块丢失，作者
 估计回收完整度为 80%。节目还说明 X 意味着“无限的可能”，并展示地面站读取
-文本文件完成姿态反馈。下方附有节目截图与两段短片段。
+文本文件完成姿态反馈。下方附有五张飞行相关截图与两段短片段；同一专题中的
+三张模块/装配截图和一段 GIF 已用于[系统架构](#系统架构)，版权说明相同。
 
 - [媒体报道详情](docs/zh-CN/media_coverage.md)
 - 官方页面：[预告](https://www.kankanews.com/detail/ELwxNKJWGy9)、
@@ -252,6 +302,9 @@ python scripts/verify_theory/run_verification.py
 | 参数 | 数值 | 来源 |
 |---|---|---|
 | 箭体直径 | 40.0 mm | 实测，STL 包围盒 |
+| 可替换模块 | 9（白板，电视专题） | 电视专题 |
+| 功能段 | 4：机动、探测、控制、动力 | 电视专题 |
+| CAD 舱段 | 10，含推进尾翼段 | CAD 与报告 |
 | 头锥外形 | 冯·卡门曲线 | 报告公式，已数值检查 |
 | Command A 外形 | 30 × 40 mm | 实测，Gerber 外形层 |
 | Power 外形 | 25.0 × 25.1 mm | 实测，Gerber 外形层 |
@@ -284,7 +337,7 @@ python scripts/verify_theory/run_verification.py
 ## 许可证
 
 代码、文档与作者原创媒体采用 [MIT](LICENSE)。第三方器件手册与赛事标志不在
-MIT 范围内。节目截图与 GIF 片段版权归上海广播电视台所有，不在 MIT 范围内；
+MIT 范围内。八张节目截图与三段 GIF 片段版权归上海广播电视台所有，不在 MIT 范围内；
 完整节目不再分发。
 
 ## 致谢

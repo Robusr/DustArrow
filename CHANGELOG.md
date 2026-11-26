@@ -7,6 +7,12 @@ Keep a Changelog and Semantic Versioning.
 
 ### Added
 
+- A three-panel system overview figure (Figure 1), a redrawn architecture
+  diagram (Figure 2) and a redrawn CRC-16 telemetry-frame diagram (Figure 3),
+  all as editable SVG.
+- TV-derived module-nomenclature, functional-section and sensor-stack stills,
+  plus a short gold-finger module-interface GIF, used as primary evidence in the
+  architecture section.
 - Media-coverage documentation in English, Chinese and French, including the
   January 2024 *Young Edison* feature, video fingerprint and a fact-check table.
 - Errata item E-16 on the TV-documented test flight and its limits.
@@ -19,6 +25,11 @@ Keep a Changelog and Semantic Versioning.
 
 ### Changed
 
+- The READMEs now lead with a system overview, use the TV whiteboard’s nine
+  module names and four functional sections, and place the architecture and
+  telemetry-frame figures in the data-path discussion.
+- BOM counts are corrected to eleven unpriced lines and sixteen lines without a
+  supplier name; the replication guides now list ten Gerber archives.
 - README name origin now explains that X means infinite possibilities.
 - The flight-test specification now records the TV-documented partial recovery.
 - The three READMEs were rewritten and synchronized; provisional, pending-update

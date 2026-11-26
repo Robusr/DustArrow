@@ -32,9 +32,9 @@ STL 导出位于 `mechanical/output/3dp/`，第二次打印的文件位于
 
 ## 2. 制造电子板卡
 
-1. 把 `electronics/output/gerber/` 中的 9 个 Gerber 包发给板厂。
-2. 按 `BOM/bill_of_materials.csv` 采购。16 行没有价格或供应商编号，下单前
-   必须补齐。
+1. 把 `electronics/output/gerber/` 中的 10 个 Gerber 包发给板厂。
+2. 按 `BOM/bill_of_materials.csv` 采购。11 行没有价格，16 行未填写供应商
+   名称，下单前必须补齐。
 3. 对照打印舱段检查板卡外形。实测尺寸列在 `docs/zh-CN/system_design.md`。
 4. 焊接前检查金手指边缘和 FPC 连接器。
 

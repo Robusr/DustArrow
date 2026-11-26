@@ -48,11 +48,13 @@ Official pages:
 | SHA-256 | `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9` |
 
 The full video is a third-party television production and is **not** copied into
-this repository. Five stills and two short GIF excerpts are included under
+this repository. Eight stills and three short GIF excerpts are included under
 `media/photos/project/`: `tv_still_build.png`, `tv_still_ground_station.png`,
 `tv_still_modular.png`, `tv_still_launch.png`, `tv_still_recovery.png`,
-`tv_launch.gif` and `tv_recovery.gif`. The full video, full subtitles and other
-frames are not redistributed. The excerpts remain copyright Shanghai Media Group
+`tv_module_nomenclature.png`, `tv_functional_sections.png`,
+`tv_sensor_stack.png`, `tv_launch.gif`, `tv_recovery.gif` and
+`tv_module_interface.gif`. The full video, full subtitles and other frames are
+not redistributed. The excerpts remain copyright Shanghai Media Group
 and are excluded from MIT.
 
 ### Transcription note
@@ -75,10 +77,14 @@ not versioned.
 | Third-generation structure | The episode says “four parts in total, which can be connected freely”; the dust sensor can be joined with the gas sensor to form a three-sensor detection section |
 | Modular goal | For sandstorms, acid rain and other weather, replace the relevant module instead of the whole airframe |
 
-The episode says “four parts” around 08:08, while the formal CAD divides the
-airframe into ten functional bays. The two are not necessarily contradictory:
-the programme uses four functional groups, the CAD uses ten manufacturable bays.
-The difference is marked for confirmation by the author.
+The episode says “four parts” around 08:08 and later shows a whiteboard with nine
+module names. The formal CAD divides the airframe into ten manufacturable bays.
+This repository reconciles the two as nine replaceable modules plus the
+propulsion/fin section. The four functional groups are mapped to the modules as
+maneuver (parachute, canard), detection (dust, gas, CO/smoke), control (command,
+exploration, data) and power (power module, propulsion). The grouping is an
+interpretation of the broadcast labels, not a statement read directly from the
+whiteboard.
 
 ### 3.2 Test flight
 
@@ -107,7 +113,7 @@ figure is the student’s on-site estimate, not an independent measurement.
 Around 08:47 the episode says the ground segment “reads data from a text file and
 completes some simple attitude-feedback tasks”. This matches the archived code:
 the serial regular expression writes `data.txt`, the six plots are placeholders
-and the OpenGL widget is disabled.
+and the OpenGL widget draws a static cube; its live update is commented out.
 
 Around 18:04 the student describes two intended data paths:
 
@@ -147,7 +153,7 @@ meteorological measurements.
 | Topic | Broadcast | Repository | Treatment |
 |---|---|---|---|
 | Project type | Climate-monitoring rocket | Meteorological sounding rocket, modular telemetry system | Same object; the repository uses the technical term |
-| Third-generation structure | Four parts, freely connected | Ten functional bays | Functional grouping versus CAD breakdown; to be confirmed |
+| Third-generation structure | Four parts, freely connected; whiteboard of nine modules | Nine modules + propulsion/fin (ten CAD bays) | Reconciled in System architecture; grouping is an interpretation |
 | First-generation completion | 2023-02 | Report and BOM are dated 2023-08 | Not contradictory: first generation in February, competition material in August |
 | Recovery | “Success”, 80% complete | No flight log in the archive | “Partial recovery”; 80% marked as a student estimate |
 | Data link | “In theory, real-time return” | No telemetry log | Design intention, not a measured result |
@@ -178,7 +184,7 @@ written as a fact or added to the main README specifications.
 
 - The programme is copyright Shanghai Media Group and its producers. Kankan News
   states that the material may not be reproduced without authorization.
-- The repository includes five stills and two short GIF excerpts under
+- The repository includes eight stills and three short GIF excerpts under
   `media/photos/project/`; it contains no full video, no full subtitle track and
   no other broadcast frames. The excerpts remain third-party material and are
   excluded from MIT.

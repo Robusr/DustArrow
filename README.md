@@ -24,6 +24,40 @@
 
 ---
 
+<p align="center">
+  <img src="./media/photos/project/system_overview.svg" alt="DustArrow X system overview" width="100%"/>
+  <br>
+  <em>Figure 1 | System overview. The 40 mm airframe carries nine replaceable
+  modules in four functional sections; the archived avionics chain and ground
+  station are shown with the proposed CRC-16 frame. The flight profile is
+  conceptual: no telemetry log or quantitative flight data are present in the
+  archive.</em>
+</p>
+
+## About
+
+DustArrow X is the third documented generation of a student project from Guyuan
+No. 1 Middle School, Ningxia, after Theta and Beta. It was presented at the China
+Adolescents Science and Technology Innovation Contest and featured on Shanghai
+TV’s *Young Edison* Season 8 in January 2024. The project measures the vertical
+structure of the atmosphere during dust events with a low-cost sounding rocket.
+
+The airframe is 40 mm in diameter. The January 2024 TV feature presents four
+functional sections and a whiteboard of nine replaceable modules. This repository
+maps them as maneuver (parachute, canard), detection (dust, gas, CO/smoke),
+control (command, exploration, data) and power (power module, propulsion). The
+CAD adds the propulsion/fin section, giving ten manufacturable bays. Modules are
+joined by gold-finger board-to-board contacts, with a flexible printed circuit
+inside each bay. The flight electronics centre on an RP2040 with an MPU6050, a
+BMP280, an ATGM336H GNSS receiver, an A39C LoRa modem, a GP2Y1014AU0F dust
+sensor and MQ-series gas sensors. The ground segment is a Python/PyQt5
+application.
+
+This repository covers the mechanical design, electronics fabrication data,
+ground-station source, original report, presentation, media and the
+TV-documented module nomenclature. Flight firmware source and flight logs are
+outside the scope of this archive; see [firmware/README.md](firmware/README.md).
+
 ## Name origin
 
 The Chinese name «沙尘利“箭”» combines «沙尘» (sand and dust) with «利箭» (a sharp
@@ -33,33 +67,15 @@ architecture is inspired by the experiment racks on the Chinese space station.
 The third generation adds **X**; the author explains that X means “infinite
 possibilities”.
 
-## About the project
-
-DustArrow X is the third documented generation of a student project from Guyuan
-No. 1 Middle School, Ningxia, after Theta and Beta. It was presented at the China
-Adolescents Science and Technology Innovation Contest and featured on Shanghai
-TV’s *Young Edison* Season 8 in January 2024. The project measures the vertical
-structure of the atmosphere during dust events with a low-cost sounding rocket.
-
-The airframe is 40 mm in diameter and has ten functional sections. Modules are
-joined by gold-finger board-to-board contacts, with a flexible printed circuit
-inside each bay. The flight electronics centre on an RP2040 with an MPU6050, a
-BMP280, an ATGM336H GNSS receiver, an A39C LoRa modem, a GP2Y1014AU0F dust sensor
-and MQ-series gas sensors. The ground segment is a Python/PyQt5 application.
-
-This repository covers the mechanical design, electronics fabrication data,
-ground-station source, original report, presentation and media. Flight firmware
-source and flight logs are outside the scope of this archive; see
-[firmware/README.md](firmware/README.md).
-
 ## Key features
 
-- **40 mm modular airframe** — ten functional bays with gold-finger and FPC
-  connections; printed parts can be replaced individually.
+- **40 mm modular airframe** — nine replaceable modules and a propulsion/fin
+  section (ten CAD bays), joined by gold-finger and FPC contacts; printed parts
+  can be replaced individually.
 - **RP2040 sensing stack** — six-axis IMU, barometer, GNSS, dust and gas sensors.
 - **LoRa downlink** — A39C-T400A22D1a serial modem received at 9600 baud.
-- **PyQt5 ground station** — six plot panels, a 3D attitude view and serial
-  acquisition.
+- **PyQt5 ground-station prototype** — serial acquisition, six placeholder plots
+  and a static attitude cube; the command buttons are not wired.
 - **Open fabrication files** — SolidWorks sources, STL, STEP, Gerber, BOM and
   silkscreen artwork.
 - **Verification suite** — 32 Python tests and 16 documented errata covering
@@ -68,21 +84,52 @@ source and flight logs are outside the scope of this archive; see
 ## System architecture
 
 <p align="center">
-  <img src="./media/photos/project/system_architecture.svg" alt="DustArrow X system architecture" width="900"/>
+  <img src="./media/photos/project/system_architecture.svg" alt="DustArrow X system architecture and data paths" width="100%"/>
   <br>
-  <em>System architecture. Dashed links are wireless; the ground-station command path is shown for reference.</em>
+  <em>Figure 2 | Architecture and data paths. Solid lines are documented or
+  implemented links; dashed blue is the LoRa downlink; amber dotted marks the
+  proposed CRC-16 frame and the command path that is not implemented in the
+  archived code.</em>
 </p>
 
-- **Mechanical** — nose and parachute bay, telemetry bay, data bay, power bay,
-  three sensor bays, main-control bay, canard bay and propulsion/fin bay. The
-  parachute uses one servo with a large-angle hatch; the canard bay uses a
-  two-channel air-rudder mechanism.
+The TV feature shows four functional sections and a whiteboard with nine
+replaceable modules. This repository maps the whiteboard modules to those
+sections as maneuver (parachute and canard), detection (dust, gas and CO/smoke
+sensors), control (command, exploration and data modules) and power (power module
+and propulsion). The CAD adds the propulsion/fin bay, giving ten manufacturable
+bays. The module names are the whiteboard names; the grouping is an
+interpretation of the broadcast labels.
+
+<p align="center">
+  <img src="./media/photos/project/tv_module_nomenclature.png" width="330" alt="Whiteboard listing nine DustArrow X modules"/>
+  <img src="./media/photos/project/tv_functional_sections.png" width="440" alt="Four functional sections labelled in the TV feature"/>
+</p>
+<p align="center"><em>Primary evidence for the module structure. Left: the
+author’s whiteboard names nine modules (1 parachute, 2 canard, 3 dust, 4 gas,
+5 CO, 6 command, 7 exploration, 8 data, 9 power). Right: the January 2024 TV
+feature labels the four functional sections — maneuver, detection, control and
+power. Copyright Shanghai Media Group; see Media coverage.</em></p>
+
+<p align="center">
+  <img src="./media/photos/project/tv_sensor_stack.png" width="330" alt="Three-sensor detection section: dust, harmful gas and smoke modules"/>
+  <img src="./media/photos/project/tv_module_interface.gif" width="440" alt="Two modules joined by a gold-finger board-to-board connector"/>
+</p>
+<p align="center"><em>Detection and interface details. Left: the three-sensor
+detection section (dust, harmful gas and smoke/CO). Right: two printed modules
+joined by the gold-finger board-to-board interface. Copyright Shanghai Media
+Group.</em></p>
+
+- **Mechanical** — nose and parachute bay, canard bay, three sensor modules
+  (dust, gas, CO/smoke), command module, exploration module, data module, power
+  module and the propulsion/fin section. The parachute uses one servo with a
+  large-angle hatch; the canard bay uses a two-channel air-rudder mechanism.
 - **Electronics** — nine module BOMs and ten Gerber packages. The main boards
   centre on the RP2040, MPU6050, BMP280, ATGM336H and A39C.
 - **Downlink** — a 9600 baud, 8-N-1 text stream. A CRC-16 binary frame format is
-  specified and tested in `scripts/verify_theory/test_protocol.py`.
+  specified and tested in `scripts/verify_theory/test_protocol.py` (Figure 3).
 - **Ground station** — PyQt5, Matplotlib and OpenGL; serial acquisition, text
-  parsing, six plot panels and an attitude view.
+  parsing, six placeholder plots and a static attitude cube. The command path is
+  not implemented.
 
 ## Theory and design
 
@@ -104,6 +151,18 @@ $$
 \theta_k = \alpha\,\theta_{\mathrm{acc},k} +
 (1-\alpha)\left(\theta_{k-1} + \omega_y \Delta t\right).
 $$
+
+<p align="center">
+  <img src="./media/photos/project/telemetry_frame.svg" alt="Proposed telemetry frame with header, length, payload, CRC-16 and terminator" width="95%"/>
+  <br>
+  <em>Figure 3 | Proposed telemetry frame. The frame is tested in
+  <code>scripts/verify_theory/test_protocol.py</code> and is a recommendation,
+  not a description of the archived firmware.</em>
+</p>
+
+The archived ground station instead uses a free-form text stream
+(`X...Y...GX...GY...GZ...`) with no header, length or checksum. See
+[System design](docs/en/system_design.md) for the data path.
 
 The full derivation, coordinate conventions and corrections are in
 [Theory of operation](docs/en/theory_of_operation.md) and the
@@ -143,9 +202,11 @@ assemblies resolve parts by name. STL outputs use English names and include a
 | BOM line items | 48 |
 | Parts | 57 |
 | Priced subtotal | CNY 31.44 |
-| Lines without price | 16 |
+| Lines without price | 11 |
+| Lines without supplier name | 16 |
 
-Prices are from the 2023-08-15 module exports. The complete line-item table is in
+Prices are from the 2023-08-15 module exports. Eleven lines have no price and
+sixteen lines have no supplier name. The complete line-item table is in
 [BOM/bill_of_materials.csv](BOM/bill_of_materials.csv); the per-module summary is
 in [BOM/bom_summary.csv](BOM/bom_summary.csv).
 
@@ -159,8 +220,9 @@ python -m pip install -r requirements.txt
 python appMain.py
 ```
 
-The application enumerates serial ports, opens 9600 8-N-1, parses `X`, `Y`, `GX`,
-`GY`, `GZ` fields and writes `data.txt`. See
+The archived application is Windows-only: it calls `ctypes.windll` at import and
+does not start on macOS or Linux. It enumerates serial ports, opens 9600 8-N-1,
+parses `X`, `Y`, `GX`, `GY`, `GZ` fields and writes `data.txt`. See
 [software/ground_station/README.md](software/ground_station/README.md) for the
 implemented data path.
 
@@ -193,7 +255,8 @@ python scripts/verify_theory/run_verification.py
 <p align="center">
   <img src="./media/photos/project/ground_station_ui.png" alt="Ground-station interface layout" width="800"/>
   <br>
-  <em>Ground-station interface layout.</em>
+  <em>Archived ground-station interface. The six plots are placeholders and the
+  command buttons are not connected.</em>
 </p>
 
 Verification result: 32 tests pass. The suite covers attitude formulas,
@@ -210,7 +273,10 @@ wired ignition, and the rocket left the rail. The sensor section was recovered;
 the parachute bay and propulsion module were lost. The student estimates 80%
 recovery completeness. The episode also explains that X means “infinite
 possibilities” and shows the ground station reading a text file for attitude
-feedback. Five stills and two short excerpts from the episode are included below.
+feedback. Five flight-related stills and two short excerpts from the episode are
+included below. Three module and assembly stills and one GIF from the same
+feature are used in [System architecture](#system-architecture); the same rights
+note applies.
 
 - [Detailed media coverage](docs/en/media_coverage.md)
 - Official pages: [preview](https://www.kankanews.com/detail/ELwxNKJWGy9),
@@ -272,6 +338,9 @@ feedback. Five stills and two short excerpts from the episode are included below
 | Parameter | Value | Source |
 |---|---|---|
 | Airframe diameter | 40.0 mm | Measured, STL bounding box |
+| Replaceable modules | 9 (whiteboard, TV feature) | TV feature |
+| Functional sections | 4: maneuver, detection, control, power | TV feature |
+| CAD bays | 10, including the propulsion/fin section | CAD and report |
 | Nose profile | von Kármán curve | Report formula, checked numerically |
 | Command A outline | 30 × 40 mm | Measured, Gerber outline |
 | Power outline | 25.0 × 25.1 mm | Measured, Gerber outline |
@@ -308,8 +377,8 @@ ignition procedures or launch instructions.
 ## License
 
 Code, documentation and original media are released under [MIT](LICENSE).
-Third-party manufacturer datasheets and the contest logo are excluded. The five
-stills and two GIF excerpts from the Shanghai TV feature are included for
+Third-party manufacturer datasheets and the contest logo are excluded. The eight
+stills and three GIF excerpts from the Shanghai TV feature are included for
 documentation; their copyright remains with Shanghai Media Group and they are
 not covered by MIT. The full programme is not redistributed.
 

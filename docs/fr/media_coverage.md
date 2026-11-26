@@ -49,11 +49,13 @@ Pages officielles :
 | SHA-256 | `27854a95a43206bc7dd3ea3188fd81b3f9bddbf61c9e64516de09805426529c9` |
 
 La vidéo complète est une production télévisée tierce et n’est **pas** copiée
-dans ce dépôt. Cinq images fixes et deux courts extraits GIF sont inclus sous
+dans ce dépôt. Huit images fixes et trois courts extraits GIF sont inclus sous
 `media/photos/project/` : `tv_still_build.png`, `tv_still_ground_station.png`,
 `tv_still_modular.png`, `tv_still_launch.png`, `tv_still_recovery.png`,
-`tv_launch.gif` et `tv_recovery.gif`. La vidéo complète, les sous-titres complets
-et les autres images ne sont pas rediffusés. Les extraits restent protégés par le
+`tv_module_nomenclature.png`, `tv_functional_sections.png`,
+`tv_sensor_stack.png`, `tv_launch.gif`, `tv_recovery.gif` et
+`tv_module_interface.gif`. La vidéo complète, les sous-titres complets et les
+autres images ne sont pas rediffusés. Les extraits restent protégés par le
 copyright de Shanghai Media Group et sont exclus de MIT.
 
 ### Note de transcription
@@ -76,10 +78,14 @@ complète reste hors du dépôt et n’est pas versionnée.
 | Structure de la troisième génération | L’émission parle de « quatre parties au total, assemblables librement » ; le capteur de poussière peut être réuni au capteur de gaz pour former une section à trois capteurs |
 | Objectif modulaire | Pour le sable, la pluie acide ou d’autres phénomènes, remplacer le module concerné plutôt que toute la cellule |
 
-L’émission parle de « quatre parties » vers 08:08, alors que la CAO finale divise
-la cellule en dix baies fonctionnelles. Les deux descriptions ne sont pas
-forcément contradictoires : l’émission regroupe quatre fonctions, la CAO détaille
-dix baies fabricables. L’écart est marqué comme à confirmer par l’auteur.
+L’émission parle de « quatre parties » vers 08:08, puis montre un tableau blanc
+avec neuf noms de modules. La CAO finale divise la cellule en dix baies
+fabricables. Ce dépôt réconcilie les deux comme neuf modules remplaçables plus la
+section propulsion/empennage. Les quatre groupes fonctionnels sont associés aux
+modules ainsi : manœuvre (parachute, canards), détection (poussière, gaz,
+CO/fumée), contrôle (commande, exploration, données) et puissance (module
+d’alimentation, propulsion). Ce regroupement est une interprétation des libellés
+du sujet télévisé, et non une mention directe du tableau blanc.
 
 ### 3.2 Essai en vol
 
@@ -110,7 +116,8 @@ pas une mesure indépendante.
 Vers 08:47, l’émission indique que le segment sol « lit des données dans un
 fichier texte et effectue quelques tâches simples de retour d’attitude ». Cela
 correspond au code archivé : l’expression régulière série écrit `data.txt`, les six
-courbes sont factices et le widget OpenGL est désactivé.
+courbes sont factices et le widget OpenGL affiche un cube statique ; sa mise à
+jour en direct est commentée.
 
 Vers 18:04, l’élève décrit deux voies de données envisagées :
 
@@ -153,7 +160,7 @@ météorologiques quantitatives.
 | Sujet | Émission | Dépôt | Traitement |
 |---|---|---|---|
 | Type de projet | Fusée de surveillance du climat | Fusée-sonde météorologique, système de télémétrie modulaire | Même objet ; le dépôt emploie le terme technique |
-| Structure de la troisième génération | Quatre parties assemblables | Dix baies fonctionnelles | Regroupement fonctionnel contre découpage CAO ; à confirmer |
+| Structure de la troisième génération | Quatre parties assemblables ; tableau blanc de neuf modules | Neuf modules + propulsion/empennage (dix baies CAO) | Réconcilié dans Architecture du système ; regroupement interprété |
 | Fin de la première génération | 2023-02 | Rapport et nomenclature datés de 2023-08 | Non contradictoire : première génération en février, dossier de concours en août |
 | Récupération | « Succès », 80 % | Aucun journal de vol dans l’archive | « Récupération partielle » ; 80 % marqué comme estimation |
 | Liaison de données | « En théorie, retour en temps réel » | Aucun journal de télémétrie | Intention, pas mesure |
@@ -184,7 +191,7 @@ août 2023. Aucune pièce officielle n’a été retrouvée ; le fait n’est do
 
 - L’émission est protégée par le droit d’auteur de Shanghai Media Group et de ses
   producteurs. Kankan News interdit la reproduction sans autorisation.
-- Le dépôt inclut cinq images fixes et deux courts extraits GIF sous
+- Le dépôt inclut huit images fixes et trois courts extraits GIF sous
   `media/photos/project/` ; il ne contient ni vidéo complète, ni sous-titres
   complets, ni autres images de l’émission. Les extraits restent des documents
   tiers et sont exclus de MIT.
